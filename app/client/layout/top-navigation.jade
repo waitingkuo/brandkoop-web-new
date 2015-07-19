@@ -1,0 +1,26 @@
+template(name="topNavigation")
+  .row.border-bottom.white-bg
+    nav.navbar.navbar-static-top(role="navigation")
+      .navbar-header
+        button.navbar-toggle.collapsed(aria-controls="navbar", aria-expanded="false", data-target="#navbar", data-toggle="collapse", type="button")
+          i.fa.fa-reorder
+        a.navbar-brand(href="#") Brandkoop
+
+      #navbar.navbar-collapse.collapse
+        ul.nav.navbar-nav.navbar-right
+          //li.active
+          //  a(aria-expanded="false", role="button", href="#")  Back to main Layout page
+          //li
+          //  a(href="#") Login
+          li
+            a(href="http://blog.brandkoop.com", target="_blank") Blog
+    
+          li.active
+            a(href="#") Get Early Access
+
+
+        ul.nav.navbar-top-links.navbar-right
+          //li
+          //  a(href="#")
+          //    i.fa.fa-sign-out
+          //    |  Log out

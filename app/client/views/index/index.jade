@@ -1,0 +1,30 @@
+template(name="index")
+  .wrapper.wrapper-content.animated.fadeInRight
+    .row
+      .col-lg-12
+        .ibox.float-e-margins(style="max-width: 720px; margin: 0 auto;")
+          //.ibox-title
+          //  h5 wew
+          .ibox-content(style="text-align: center;")
+            br
+            br
+            br
+            h1 The Science Of Branding At Your Fingertips
+            br
+            //h3 Monitor. Optimze. Partner.
+            h3 Instantly Profile Your Brand's Personality
+            br
+            br
+            br
+            form#instant-profiler-form
+              .input-group
+                input#instant-profiler-url.form-control(type="text", style="height: 60px;", placeholder="Website URL")
+                span.input-group-btn
+                  button.btn.btn-primary(type="submit", style="height: 60px; width: 100px;") Profile
+
+
+template(name="layout2")
+  #wrapper
+    #page-wrapper.gray-bg
+      +topNavigation
+      +Template.dynamic template=main
