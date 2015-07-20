@@ -12,8 +12,10 @@ cosmos:browserify@0.3.0
 ddp@1.1.0
 deps@1.0.7
 ejson@1.0.6
+em0ney:amcharts@3.13.1_2
 fastclick@1.0.3
 fortawesome:fontawesome@4.3.0
+fourseven:scss@3.2.0
 geojson-utils@1.0.3
 grigio:babel@0.1.4
 html-tools@1.0.4
