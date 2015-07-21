@@ -1,0 +1,107 @@
+template(name='navigation')
+  nav.navbar-default.navbar-static-side(role='navigation')
+    .sidebar-collapse
+
+      a.close-canvas-menu
+        i.fa.fa-times
+
+      ul#side-menu.nav
+        li.nav-header
+          .dropdown.profile-element
+            a.dropdown-toggle(data-toggle='dropdown', href='#')
+              span.clear
+                span.block.m-t-xs
+                  strong.font-bold {{user}}
+                |  
+                span.text-muted.text-xs.block
+                  | {{website}}
+                //  b.caret
+
+            //ul.dropdown-menu.animated.fadeInRight.m-t-xs
+            //  li
+            //    a(href='#') Item
+            //  li
+            //    a(href='#') Item
+            //  li.divider
+            //  li
+            //    a(href='#') Item
+
+          .logo-element
+            | B
+
+
+        //li(class="{{isActiveRoute regex='domainCharacter|domainValues|domainCloud'}}")
+        li
+          a(href="#")
+            i.fa.fa-university
+            span.nav-label Website Profile
+            span.fa.arrow
+          ul.nav.nav-second-level
+            li
+              //a(href="{{pathFor route='domainCharacter'}}") Character
+              a(href="#") Character
+            li
+              //a(href="{{pathFor route='domainValues'}}") Values
+              a(href="#") Values
+            li
+              a(href="#") Brand Cloud
+              //a(href="{{pathFor route='domainCloud'}}") Brand Cloud
+
+        li
+          a(href="#")
+            i.fa.fa-users
+            span.nav-label Social Profile
+            span.fa.arrow
+          ul.nav.nav-second-level
+            //li
+            //  a(href="{{pathFor route='socialCharacter'}}") Character
+            //li
+            //  a(href="{{pathFor route='socialValues'}}") Values
+            //li
+            //  a(href="{{pathFor route='socialCloud'}}") Brand Cloud
+
+        li
+          a(href="#")
+            i.fa.fa-columns
+            span.nav-label Brand Harmony
+            span.fa.arrow
+          ul.nav.nav-second-level
+            //li
+            //  a(href="{{pathFor route='harmonyCharacter'}}") Character
+            //li
+            //  a(href="{{pathFor route='harmonyValues'}}") Values
+            //li
+            //  a(href="{{pathFor route='harmonyCloud'}}") Brand Cloud
+        //li
+        //  a(href="{{pathFor route='brandBlueprint'}}")
+        //    i.fa.fa-pencil-square-o
+        //    span.nav-label Brand Blueprint
+
+        //li
+        //  a(href="{{pathFor route='brandAdvocates'}}")
+        //    i.fa.fa-thumbs-up
+        //    span.nav-label Brand Advocates
+
+        //li
+        //  a(href="{{pathFor route='share'}}")
+        //    i.fa.fa-share
+        //    span.nav-label Share
+
+        //li
+        //  a(href="{{pathFor route='settings'}}")
+        //    i.fa.fa-cog
+        //    span.nav-label Settings
+
+        //if isInRole 'admin'
+        //  li
+        //    a(href="#")
+        //      i.fa.fa-dashboard
+        //      span.nav-label Admin Dashboard
+        //      span.fa.arrow
+        //    ul.nav.nav-second-level
+        //      li
+        //        a(href="{{pathFor route='adminUsers'}}") Users
+        //      li
+        //        a(href="{{pathFor route='adminWebsites'}}") Websites
+        //      li
+        //        a(href="{{pathFor route='adminTwitters'}}") Twitters
