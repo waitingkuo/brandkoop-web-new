@@ -6,6 +6,14 @@ Meteor.startup(function() {
 
   });
 
+  Template.navigation.helpers({
+
+    websiteId() {
+      return FlowRouter.getParam('websiteId');
+    }
+
+
+  });
 
 
 });

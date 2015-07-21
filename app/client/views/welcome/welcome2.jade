@@ -1,0 +1,28 @@
+template(name="welcome2")
+  .row
+    .col-lg-12
+      .wrapper.wrapper-content.animated.fadeInRight.article
+        .row
+          .col-lg-12
+            .ibox-content
+              .text-center
+                .sk-spinner.sk-spinner-pulse
+                h1 So ... right now we're analyzing your site.
+                br
+
+                h3 We gotta extract some words and crunch some numbers to give the best profile possible. 
+                h3 This will take about 3 minutes. 
+
+              br
+
+              .text-center
+                //a.btn.btn-primary(href="{{pathFor 'domainCharacter'}}") Get a Head Start
+                if profiled
+                  a.btn.btn-primary(href="/website/{{websiteId}}/character") Get a Head Start
+                else
+                  a.btn.btn-primary(disabled="disabled") Get a Head Start
+                
+                br
+                br
+                p Charts will take a few minutes to appear.
+
