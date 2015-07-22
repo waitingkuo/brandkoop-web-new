@@ -5,7 +5,6 @@ Websites.attachSchema(new SimpleSchema({
   userId: {
     type: String,
     autoValue() {
-      //FIXME
       return this.userId
     }
   },
@@ -30,6 +29,59 @@ Websites.attachSchema(new SimpleSchema({
 
 
 if (Meteor.isServer) {
+
+  Websites.after.insert(function(userId, doc) {
+
+    let websiteId = doc._id;
+
+    // add website character
+    WebsiteCharacters.insert({
+      userId: userId,
+      websiteId: websiteId
+    });
+
+    // add website values
+    WebsiteValues.insert({
+      userId: userId,
+      websiteId: websiteId
+    });
+
+    // add brandcloud
+    WebsiteWordclouds.insert({
+      userId: userId,
+      websiteId: websiteId
+    });
+
+    //
+    Meteor.call('profile', websiteId, function(){});
+
+  });
+
+
+  Websites.after.remove(function(userId, doc) {
+
+    let websiteId = doc._id;
+
+    // add website character
+    WebsiteCharacters.remove({
+      userId: userId,
+      websiteId: websiteId
+    });
+
+    // add website values
+    WebsiteValues.remove({
+      userId: userId,
+      websiteId: websiteId
+    });
+
+    // add brandcloud
+    WebsiteWordclouds.remove({
+      userId: userId,
+      websiteId: websiteId
+    });
+
+  });
+
 
   Websites.allow({
 

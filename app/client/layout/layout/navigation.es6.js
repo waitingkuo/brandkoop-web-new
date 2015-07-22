@@ -9,7 +9,10 @@ Meteor.startup(function() {
   Template.navigation.helpers({
 
     websiteId() {
-      return FlowRouter.getParam('websiteId');
+      let website =  Websites.findOne()
+      if (website) {
+        return website._id;
+      }
     }
 
 

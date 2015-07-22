@@ -1,0 +1,52 @@
+template(name="adminUserList")
+
+  +pageHeading title='User List' category='Admin Dashboard'
+
+  .wrapper.wrapper-content.animated.fadeInRight
+    .row
+      .col-lg-12
+        .ibox.float-e-margins
+          .ibox-title
+            h5 User List
+          .ibox-content
+            .row
+              table.table
+                thead
+                  tr
+                    th User Id
+                    th Email
+                    th Website
+                    th CreatedBy
+                    th CreatedAt
+                tbody
+                  each users
+                    tr
+                      td {{_id}}
+                      td {{email}}
+                      th {{website.domain}}
+                      th {{createdBy}}
+                      th {{createdAt}}
+
+    
+      .col-lg-12
+        .ibox.float-e-margins
+          .ibox-title
+            h5 Add New User
+          .ibox-content
+             form.form-horizontal#admin-create-user-form
+                .form-group
+                  label.col-sm-2.control-label(for="") Email
+                  .col-sm-10
+                    input#user-email.form-control(type="email", placeholder="Email", required)
+                .form-group
+                  label.col-sm-2.control-label(for="") Password
+                  .col-sm-10
+                    input#user-password.form-control(type="input", placeholder="Password", value="brand123", disabled)
+                .form-group
+                  label.col-sm-2.control-label(for="") Website 
+                  .col-sm-10
+                    input#user-domain.form-control(type="input", placeholder="domain.com", required="required")
+                 .form-group
+                   .col-sm-2
+                   .col-sm-10
+                     button.btn.btn-primary Add

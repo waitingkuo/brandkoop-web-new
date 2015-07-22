@@ -92,16 +92,19 @@ template(name='navigation')
         //    i.fa.fa-cog
         //    span.nav-label Settings
 
-        //if isInRole 'admin'
-        //  li
-        //    a(href="#")
-        //      i.fa.fa-dashboard
-        //      span.nav-label Admin Dashboard
-        //      span.fa.arrow
-        //    ul.nav.nav-second-level
-        //      li
-        //        a(href="{{pathFor route='adminUsers'}}") Users
-        //      li
-        //        a(href="{{pathFor route='adminWebsites'}}") Websites
-        //      li
-        //        a(href="{{pathFor route='adminTwitters'}}") Twitters
+        if isInRole 'admin'
+          li
+            a(href="#")
+              i.fa.fa-dashboard
+              span.nav-label Admin Dashboard
+              span.fa.arrow
+            ul.nav.nav-second-level
+              li
+                a(href="/admin/userList") User List
+                //a(href="{{pathFor route='adminUsers'}}") Users
+              li
+                a(href="#") Wew
+                //a(href="{{pathFor route='adminUsers'}}") Users
+                //a(href="{{pathFor route='adminWebsites'}}") Websites
+              li
+                //a(href="{{pathFor route='adminTwitters'}}") Twitters

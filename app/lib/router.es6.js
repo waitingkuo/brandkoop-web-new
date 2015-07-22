@@ -154,3 +154,21 @@ FlowRouter.route('/social/:twitterId/brandcloud', {
   triggersEnter: [requireLogin]
 });
 
+
+/*
+ * Admin
+ */
+FlowRouter.route('/admin/userList', {
+  triggersEnter: [requireLogin],
+
+  subscriptions() {
+    this.register('adminUserList', Meteor.subscribe('adminUserList'));
+  },
+
+  action() {
+    FlowLayout.render('layout', {
+      main: 'adminUserList'
+    });
+  }
+
+});
