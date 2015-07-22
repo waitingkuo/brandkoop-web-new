@@ -4,7 +4,7 @@ template(name="topNavigation")
       .navbar-header
         button.navbar-toggle.collapsed(aria-controls="navbar", aria-expanded="false", data-target="#navbar", data-toggle="collapse", type="button")
           i.fa.fa-reorder
-        a.navbar-brand(href="#") Brandkoop
+        a.navbar-brand(href="/") Brandkoop
 
       #navbar.navbar-collapse.collapse
         ul.nav.navbar-nav.navbar-right
@@ -15,9 +15,11 @@ template(name="topNavigation")
           li
             a(href="http://blog.brandkoop.com", target="_blank") Blog
     
-          li.active
+          li
             //a(href="#") Get Early Access
-            a(href="#") Login
+            a(href="/login") Login
+          li.active
+            a(href="/signup") Sign Up
 
 
         ul.nav.navbar-top-links.navbar-right

@@ -17,9 +17,9 @@ Meteor.startup(function() {
 
       Meteor.logout()
       //FIXME
-      //setTimeout(function() {
-      //  Router.go('login');
-      //}, 0);
+      setTimeout(function() {
+        FlowRouter.go('/');
+      }, 0);
 
     },
 

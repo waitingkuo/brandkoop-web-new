@@ -60,6 +60,7 @@ routepolicy@1.0.5
 service-configuration@1.0.4
 session@1.1.0
 sha@1.0.3
+softwarerero:accounts-t9n@1.0.9
 spacebars@1.0.6
 spacebars-compiler@1.0.6
 srp@1.0.3
@@ -69,6 +70,8 @@ twbs:bootstrap@3.3.5
 ui@1.0.6
 underscore@1.0.3
 url@1.0.4
+useraccounts:bootstrap@1.10.0
+useraccounts:core@1.10.0
 waitingkuo:normalize@0.1.0
 webapp@1.2.0
 webapp-hashing@1.0.3
