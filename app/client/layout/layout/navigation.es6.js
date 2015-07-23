@@ -10,11 +10,24 @@ Meteor.startup(function() {
 
     websiteId() {
       let website =  Websites.findOne()
-      if (website) {
+      if (!!website) {
         return website._id;
       }
-    }
+    }, 
 
+    user() {
+      let user = Meteor.user();
+      if (!!user) {
+        return user.emails[0].address;
+      }
+    },
+
+    website() {
+      let website =  Websites.findOne()
+      if (!!website) {
+        return website.domain;
+      }
+    }
 
   });
 

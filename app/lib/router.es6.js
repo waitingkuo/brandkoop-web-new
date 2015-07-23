@@ -121,9 +121,16 @@ FlowRouter.route('/home', {
  */
 FlowRouter.route('/website/:websiteId/character', {
   triggersEnter: [requireLogin],
+
+  subscriptions(params) {
+    this.register('websiteCharacter', Meteor.subscribe('websiteCharacter', params.websiteId));
+  },
+
   action(params) {
-    FlowLayout.render('layout', {
-      main: 'websiteCharacter'
+    FlowRouter.subsReady('websiteCharacter', function() {
+      FlowLayout.render('layout', {
+        main: 'websiteCharacter'
+      });
     });
   }
 
@@ -132,16 +139,35 @@ FlowRouter.route('/website/:websiteId/character', {
 FlowRouter.route('/website/:websiteId/values', {
 
   triggersEnter: [requireLogin],
+
+  subscriptions(params) {
+    this.register('websiteValue', Meteor.subscribe('websiteValue', params.websiteId));
+  },
+
   action(params) {
-    FlowLayout.render('layout', {
-      main: 'websiteValues'
+    FlowRouter.subsReady('websiteValue', function() {
+      FlowLayout.render('layout', {
+        main: 'websiteValues'
+      });
     });
   }
 
 });
 
 FlowRouter.route('/website/:websiteId/brandcloud', {
-  triggersEnter: [requireLogin]
+  triggersEnter: [requireLogin],
+
+  subscriptions(params) {
+    this.register('websiteWordcloud', Meteor.subscribe('websiteWordcloud', params.websiteId));
+  },
+
+  action(params) {
+    FlowRouter.subsReady('websiteWordcloud', function() {
+      FlowLayout.render('layout', {
+        main: 'websiteBrandcloud'
+      });
+    });
+  }
 });
 
 FlowRouter.route('/social/:twitterId/character', {

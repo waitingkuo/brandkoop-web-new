@@ -1,25 +1,25 @@
 Charts = window.Charts || {};
 
-Charts.makeCharacterChart = function(id) {
+Charts.makeCharacterChart = function(id, character) {
 
   var chart = AmCharts.makeChart(id, {
     "type": "radar",
     "theme": "light",
     "dataProvider": [ {
       "criteria": "Sincerity",
-      "score": 156
+      "score": character.sincerity
     }, {
       "criteria": "Excitement",
-      "score": 100
+      "score": character.excitement
     }, {
       "criteria": "Competence",
-      "score": 320
+      "score": character.competence
     }, {
       "criteria": "Sophistication",
-      "score": 30
+      "score": character.sophistication
     }, {
       "criteria": "Ruggedness",
-      "score": 200
+      "score": character.ruggedness
     } ],
     "valueAxes": [ {
       "axisTitleOffset": 20,

@@ -1,32 +1,34 @@
 Charts = window.Charts || {};
 
-Charts.makeValuesChart = function(id) {
+Charts.makeValuesChart = function(id, values, criteria) {
+
+  if (criteria != 'overall') {
+    values = _.filter(values, (v) => v.criteria === criteria);
+  }
+
+  console.log(criteria);
+  console.log(values.length);
+  let topValues = _.sortBy(values, 'frequency').reverse().slice(0, 5);
+  console.log(topValues.length);
+
+  let dataSet = [];
+  for (let value of topValues) {
+    dataSet.push({
+      "value": value.trait,
+      "score": value.frequency,
+      "color": CriteriaColor[value.criteria]
+    });
+  }
+
+
+  // the name of each field are different between chart and  profiler
+  // so we need to convert
 
   let chart = AmCharts.makeChart(id, {
     "type": "serial",
     "theme": "light",
     "marginRight": 70,
-    "dataProvider": [{
-      "value": "down-to-earth",
-      "score": 3025,
-      "color": CriteriaColor.sincerity
-    }, {
-      "value": "daring",
-      "score": 1882,
-      "color": CriteriaColor.excitement
-    }, {
-      "value": "reliable",
-      "score": 3345,
-      "color": CriteriaColor.competence
-    }, {
-      "value": "upper class",
-      "score": 2200,
-      "color": CriteriaColor.sophistication
-    }, {
-      "value": "outdoorsy",
-      "score": 1010,
-      "color": CriteriaColor.ruggedness
-    }],
+    "dataProvider": dataSet,
     "valueAxes": [{
       "axisAlpha": 0,
       "position": "left",
