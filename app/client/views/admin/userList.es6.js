@@ -20,6 +20,22 @@ Meteor.startup(function() {
       return Websites.findOne({
         userId: this._id
       });
+    },
+
+    character() {
+     let character = WebsiteCharacters.findOne({
+        userId: this._id
+      })
+      
+      if (!!character) {
+        character.sincerity = parseInt(character.sincerity);
+        character.excitement = parseInt(character.excitement);
+        character.competence = parseInt(character.competence);
+        character.sophistication = parseInt(character.sophistication);
+        character.ruggedness = parseInt(character.ruggedness);
+        return character
+      }
+
     }
     
   });

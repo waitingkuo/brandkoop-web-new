@@ -16,7 +16,13 @@ Meteor.publish('adminUserList', function() {
     }
   });
 
-  return [users, websites];
+  let websiteCharacters = WebsiteCharacters.find({
+    userId: {
+      $in: userIds
+    }
+  });
+
+  return [users, websites, websiteCharacters];
 
 });
 

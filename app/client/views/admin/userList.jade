@@ -16,6 +16,11 @@ template(name="adminUserList")
                     th User Id
                     th Email
                     th Website
+                    th Sincerity
+                    th Excitement
+                    th Competence
+                    th Sophistication
+                    th Ruggedness
                     th CreatedBy
                     th CreatedAt
                 tbody
@@ -23,9 +28,14 @@ template(name="adminUserList")
                     tr
                       td {{_id}}
                       td {{email}}
-                      th {{website.domain}}
-                      th {{createdBy}}
-                      th {{createdAt}}
+                      td {{website.domain}}
+                      td {{character.sincerity}}
+                      td {{character.excitement}}
+                      td {{character.competence}}
+                      td {{character.sophistication}}
+                      td {{character.ruggedness}}
+                      td {{createdBy}}
+                      td {{createdAt}}
 
     
       .col-lg-12
