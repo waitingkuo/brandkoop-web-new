@@ -5,7 +5,21 @@ InstantProfiles.attachSchema(new SimpleSchema({
   domain: {
     type: String,
     label: 'Domain',
-    regEx: /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/
+    regEx: SimpleSchema.RegEx.Domain,
+    autoValue() {
+      let domain = this.value;
+      
+      // to remove http://
+      if ( domain.match(SimpleSchema.RegEx.Url) ) {
+        if (Meteor.isClient) {
+          domain = new URL(domain).host;
+        } else { //server
+          domain = url.parse(domain).host;
+        }
+      }
+
+      return domain;
+    }
     /*
     autoValue() {
       if (this.isSet) {
@@ -23,6 +37,11 @@ InstantProfiles.attachSchema(new SimpleSchema({
   values: {
     type: [Object],
     defaultValue: []
+  },
+
+  profiled: {
+    type: Boolean,
+    defaultValue: false
   }
 
 
@@ -41,9 +60,12 @@ InstantProfiles.simpleSchema().messages({
   
 
 if (Meteor.isServer) {
+
   InstantProfiles.allow({
 
-    insert: () => { true }
+    insert() {
+      return true
+    }
 
   });
 }

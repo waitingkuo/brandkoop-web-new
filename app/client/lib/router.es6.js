@@ -36,7 +36,11 @@ FlowRouter.route('/', {
 /*
  * Instant Profiler
  */
-FlowRouter.route('/instantProfiler/result/:id', {
+FlowRouter.route('/instantProfiler/result/:instantProfileId', {
+
+  subscriptions(params) {
+    this.register('instantProfile', Meteor.subscribe('instantProfile', params.instantProfileId));
+  },
 
   action(params) {
     FlowLayout.render('layout2', {

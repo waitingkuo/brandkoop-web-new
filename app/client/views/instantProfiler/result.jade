@@ -1,29 +1,55 @@
 template(name="instantProfilerResult")
-
-  
   .wrapper.wrapper-content.animated.fadeInRight
-    .row
-      .col-lg-12
-        h1(style="text-align: center;") Profiling ...
-        p(style="text-align: center;") {{profile.url}}
-        br
+    if profile.profiled
+      +instantProfilerResultProfiled
+    else
+      +instantProfilerResultProfiling
+
+
+template(name="instantProfilerResultProfiled")
+  .row
+    .col-lg-12
+      .text-center
+        h1 Brandkoop Instant Profiler
+        p {{profile.domain}}
+
+  br
+  br
+  br
+
+  .row
+    .col-lg-12
+      .ibox.float-e-margins(style="max-width: 720px; margin: 0 auto;")
+        .ibox-title
+          h5 Website Character
+
+        .ibox-content
+          #character.character-chart
+
+  br
+  br
+  br
+
+  .row
+    .col-lg-12
+      .ibox.float-e-margins(style="max-width: 720px; margin: 0 auto;")
+        .ibox-title
+          h5 Website Values
+
+        .ibox-content
+          #values.values-chart
+
+    //.col-lg-12(style="text-align: center;")
+    //  br
+    //  br
+    //  br
+    //  +instantProfilerResultTweet
+
+template(name="instantProfilerResultProfiling")
+  .row
+    .col-lg-12
+      .text-center
+        h1 Profiling ...
+        p {{profile.domain}}
       
-    .row
-      .col-lg-12
-        h1(style="text-align: center;") Profiling ...
-        p(style="text-align: center;") {{profile.url}}
-        br
-        br
-      .col-lg-12
-        .ibox.float-e-margins(style="max-width: 720px; margin: 0 auto;")
-          .ibox-title
-            h5 Website Values
-
-          .ibox-content
-            #website-values-chart
-
-      .col-lg-12(style="text-align: center;")
-        br
-        br
-        br
-        +instantProfilerResultTweet
+    

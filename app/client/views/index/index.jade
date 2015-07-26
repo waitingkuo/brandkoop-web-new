@@ -17,12 +17,12 @@ template(name="index")
             br
             br
             //form#instant-profiler-form
-            +autoForm collection="InstantProfiles" id="insertInstantProfilesForm" type="normal"
+            +autoForm collection="InstantProfiles" id="insertInstantProfileForm" type="normal"
               .input-group
                 //input#instant-profiler-url.form-control(type="text", style="height: 60px;", placeholder="Website URL")
                 +afFieldInput name="domain" style="height: 60px;" placeholder="Website URL"
                 span.input-group-btn
                   button.btn.btn-primary(type="submit", style="height: 60px; width: 100px;") Profile
-              .help-block {{afFieldMessage name='domain'}}
+              .help-block(style="color: red;") {{afFieldMessage name='domain'}}
 
 
