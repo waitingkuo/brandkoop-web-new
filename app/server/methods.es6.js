@@ -9,6 +9,23 @@ Meteor.startup(function() {
 
   Meteor.methods({
 
+    // instant profiler
+    instantProfile(domain) {
+
+      let profileId;
+
+      let profile = InstantProfiles.findOne({domain: domain});
+      if (profile) {
+        profileId = profile._id;
+      } else {
+        profileId = InstantProfiles.insert({domain: domain})
+      }
+
+      return profileId;
+    },
+
+
+    //
     profile(websiteId) {
       let website = Websites.findOne({_id: websiteId});
       HTTP.post(profileUrl+'/v3/profiler/profilewebsite', {

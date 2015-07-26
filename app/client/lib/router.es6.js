@@ -22,9 +22,13 @@ FlowRouter.subscriptions = function() {
  */
 FlowRouter.route('/', {
   action(params) {
-    FlowLayout.render('layout2', {
-      main: 'index'
-    })
+    if (Meteor.userId()) {
+      FlowRouter.go('/home');
+    } else {
+      FlowLayout.render('layout2', {
+        main: 'index'
+      });
+    }
   }
 });
 
@@ -55,9 +59,13 @@ FlowRouter.route('/signup', {
 FlowRouter.route('/login', {
 
   action() {
-   FlowLayout.render('layout2', {
-    main: 'login'
-   });
+    if (Meteor.userId()) {
+      FlowRouter.go('/home');
+    } else {
+      FlowLayout.render('layout2', {
+        main: 'login'
+      });
+    }
   }
 });
 

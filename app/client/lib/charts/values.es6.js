@@ -6,10 +6,10 @@ Charts.makeValuesChart = function(id, values, criteria) {
     values = _.filter(values, (v) => v.criteria === criteria);
   }
 
-  console.log(criteria);
-  console.log(values.length);
+  //console.log(criteria);
+  //console.log(values.length);
   let topValues = _.sortBy(values, 'frequency').reverse().slice(0, 5);
-  console.log(topValues.length);
+  //console.log(topValues.length);
 
   let dataSet = [];
   for (let value of topValues) {

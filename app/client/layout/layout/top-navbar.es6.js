@@ -15,11 +15,9 @@ Meteor.startup(function() {
 
     'click #logout': function(event) {
 
-      Meteor.logout()
-      //FIXME
-      setTimeout(function() {
+      Meteor.logout(function() {
         FlowRouter.go('/');
-      }, 0);
+      });
 
     },
 

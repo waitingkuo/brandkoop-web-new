@@ -18,3 +18,24 @@ Meteor.startup(function() {
   });
 
 });
+
+AutoForm.hooks({
+  insertInstantProfilesForm: {
+    onSubmit(insertDoc) {
+
+      this.event.preventDefault();
+      Meteor.call('instantProfile', insertDoc.domain, function(err, result) {
+        if (!err) {
+          let id = result;
+          console.log(result);
+          FlowRouter.go('/instantProfiler/result/'+id); 
+        }
+      });
+
+      // return false is same as preventDefault
+    }
+  }
+});
+
+
+

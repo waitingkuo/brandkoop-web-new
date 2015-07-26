@@ -14,12 +14,15 @@ template(name="topNavigation")
           //  a(href="#") Login
           li
             a(href="http://blog.brandkoop.com", target="_blank") Blog
-    
-          li
-            //a(href="#") Get Early Access
-            a(href="/login") Login
-          li.active
-            a(href="/signup") Sign Up
+          if currentUser
+            li
+              a#signout(href="#") Sign Out
+          else 
+            li
+              //a(href="#") Get Early Access
+              a#login(href="/login") Login
+            li.active
+              a#signup(href="/signup") Sign Up
 
 
         ul.nav.navbar-top-links.navbar-right

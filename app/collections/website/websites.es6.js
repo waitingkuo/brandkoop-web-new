@@ -14,8 +14,6 @@ Websites.attachSchema(new SimpleSchema({
     label: 'Domain',
     regEx: /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/,
     autoValue() {
-      console.log(this);
-      console.log(this.isSet);
       if (this.isSet) {
         return this.value.match(/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/).slice(2, 4).join('.')
       }

@@ -13,4 +13,14 @@ Meteor.startup(function() {
     $('body').removeClass('top-navigation');
   });
 
+  Template.layout2.events({
+
+    'click #signout': function() {
+      Meteor.logout(function() {
+        FlowRouter.go('/');
+      });
+    }
+
+  });
+
 });
