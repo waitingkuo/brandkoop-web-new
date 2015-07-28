@@ -128,7 +128,7 @@ video {
 }
 
 .modal-dialog {
-  z-index: 1200;
+  z-index: 2200;
 }
 
 .modal-body {
@@ -211,7 +211,7 @@ ul.unstyled, ol.unstyled {
 }
 
 .big-icon {
-  font-size: 160px;
+  font-size: 160px !important;
   color: #e5e6e7;
 }
 
@@ -537,6 +537,14 @@ code {
   border-width: 1px 0px;
 }
 
+.ibox-footer {
+  color: inherit;
+  border-top: 1px solid @border-color;
+  font-size: 90%;
+  background: #ffffff;
+  padding: 10px 15px;
+}
+
 table.table-mail tr td {
   padding: 12px;
 }
@@ -815,7 +823,8 @@ table.table-mail tr td {
 .mailbox\.inbox nav.navbar,
 .mailbox\.email_view nav.navbar,
 .mailbox\.email_compose nav.navbar,
-.dashboards\.dashboard_4_1 nav.navbar
+.dashboards\.dashboard_4_1 nav.navbar,
+.metrics nav.navbar, .metrics\.index nav.navbar
 {
   background: #fff;
 }
@@ -826,11 +835,9 @@ table.table-mail tr td {
 .Dashboard_4_1 .navbar.navbar-static-top,
 .ComposeEmail .navbar.navbar-static-top,
 .EmailView .navbar.navbar-static-top,
-.Inbox .navbar.navbar-static-top {
-  background: #fff;
-}
-
-.light-navbar .navbar.navbar-static-top {
+.Inbox .navbar.navbar-static-top,
+.Metrics .navbar.navbar-static-top
+{
   background: #fff;
 }
 
@@ -841,11 +848,6 @@ a.close-canvas-menu {
   right: 15px;
   z-index: 1011;
   color: #a7b1c2;
-  display: none;
-}
-
-.canvas-menu a.close-canvas-menu {
-  display: block;
 }
 
 a.close-canvas-menu:hover {

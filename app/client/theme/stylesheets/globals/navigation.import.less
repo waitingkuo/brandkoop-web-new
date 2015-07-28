@@ -152,9 +152,6 @@
   background: darken(@nav-bg, 3%);
 }
 
-.nav-second-level {
-  //  transition-duration: 0.5s;
-}
 
 .nav.nav-second-level > li.active {
   border: none;
@@ -334,6 +331,12 @@ body.mini-navbar .navbar-default .nav > li > .nav-second-level li a {
 }
 
 .fixed-nav #wrapper {
+  margin-top: 0;
+}
+
+body.fixed-nav #wrapper .navbar-static-side,
+body.fixed-nav #wrapper #page-wrapper
+{
   margin-top: 60px;
 }
 
