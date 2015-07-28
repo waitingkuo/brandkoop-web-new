@@ -1,0 +1,16 @@
+.example-profile-popup {
+  z-index: 3;
+  visibility: hidden;
+  position: absolute;
+  top: 33px;
+  left: 50px;
+  opacity:0;
+  transition:visibility 0s linear 0.5s,opacity 0.5s linear;
+  transition:height 0s linear 0.5s,opacity 0.5s linear;
+}
+
+.ibox:hover .example-profile-popup {
+  visibility:visible;
+  opacity:1;
+  transition-delay:0s;
+}

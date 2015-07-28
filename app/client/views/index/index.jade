@@ -1,7 +1,7 @@
 template(name="index")
   .wrapper.wrapper-content.animated.fadeInRight
     .row
-      .col-lg-12
+      .col-md-12
         .ibox.float-e-margins(style="max-width: 720px; margin: 0 auto;")
           //.ibox-title
           //  h5 wew
@@ -25,4 +25,37 @@ template(name="index")
                   button.btn.btn-primary(type="submit", style="height: 60px; width: 100px;") Profile
               .help-block(style="color: red;") {{afFieldMessage name='domain'}}
 
+
+
+
+  .wrapper.wrapper-content.animated.fadeInRight
+    .row
+      .col-md-4
+        +Template.dynamic template="exampleProfile" data=slack
+      .col-md-4
+        +Template.dynamic template="exampleProfile" data=blueBottle
+      .col-md-4
+        +Template.dynamic template="exampleProfile" data=honest
+    .row
+      .col-md-4.col-md-offset-2
+        +Template.dynamic template="exampleProfile" data=hillaryClinton
+      .col-md-4
+        +Template.dynamic template="exampleProfile" data=redBull
+
+template(name="exampleProfile")
+  .ibox
+    .ibox-content.product-box
+      .example-profile-popup
+        img(src="{{valuesChartImg}}")
+      .product-imitation(style="padding: 30px 0;")
+        div(style="height: 160px; line-height: 160px; width: 100%; text-align: center;")
+          img(src="{{img}}" width="160")
+      .product-desc
+        small.text-muted
+        a.product-name(href="#")  {{name}}
+        .small.m-t-xs 
+        .m-t.text-right
+          a.btn.btn-xs.btn-outline.btn-primary(href="#", style="height: 30px; line-height: 30px;") 
+            span See Profile
+            i.fa.fa-long-arrow-right
 
