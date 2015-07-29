@@ -39,6 +39,16 @@ Meteor.startup(function() {
     },
 
     //
+    analyze(websiteId) {
+      let website = Websites.findOne({_id: websiteId});
+      HTTP.post(profilerUrl+'/v3/analyzer/analyzewebsite', {
+        params: {
+          websiteId: websiteId,
+          domain: website.domain
+        }
+      });
+    },
+
     profile(websiteId) {
       let website = Websites.findOne({_id: websiteId});
       HTTP.post(profilerUrl+'/v3/profiler/profilewebsite', {

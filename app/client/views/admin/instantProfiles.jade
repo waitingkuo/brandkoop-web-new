@@ -1,0 +1,48 @@
+template(name="adminInstantProfiles")
+
+  +pageHeading title='Instant Profiles' category='Admin Dashboard'
+
+
+  .wrapper.wrapper-content.animated.fadeInRight
+    .row
+      .col-lg-12
+        .ibox.float-e-margins
+          .ibox-title 
+            h5 Button Usage
+            +iboxTools
+          .ibox-content
+            p View: Create a new tab and link to the profile page 
+            p Re-Profile: Re-profile the domain
+
+    br
+
+    .row
+      .col-lg-12
+        .ibox.float-e-margins
+          .ibox-title
+            h5 Instant Profiles
+          .ibox-content(style="overflow: auto;")
+            .row
+              table.table
+                thead
+                  tr
+                    th Domain
+                    th Sincerity
+                    th Excitement
+                    th Competence
+                    th Sophistication
+                    th Ruggedness
+                    th
+                tbody
+                  each profiles
+                    tr
+                      td {{domain}}
+                      td {{toInteger character.sincerity}}
+                      td {{toInteger character.excitement}}
+                      td {{toInteger character.competence}}
+                      td {{toInteger character.sophistication}}
+                      td {{toInteger character.ruggedness}}
+                      td 
+                        a.btn.btn-primary(target="_blank", href="{{link}}") View
+                        span(style="margin-right: 10px;")
+                        button.btn.btn-info.profile-btn Re-Profile

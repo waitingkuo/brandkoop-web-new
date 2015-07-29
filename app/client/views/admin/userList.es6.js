@@ -42,6 +42,22 @@ Meteor.startup(function() {
 
   Template.adminUserList.events({
 
+    'click .profile-btn': function(event) {
+      let userId = this._id;
+      let website = Websites.findOne({userId: userId});
+      if (!!website) {
+        Meteor.call('profile', website._id, function(){});
+      }
+    },
+
+    'click .analyze-btn': function(event) {
+      let userId = this._id;
+      let website = Websites.findOne({userId: userId});
+      if (!!website) {
+        Meteor.call('analyze', website._id, function(){});
+      }
+    },
+
     'submit #admin-create-user-form': function(e) {
 
       e.preventDefault();

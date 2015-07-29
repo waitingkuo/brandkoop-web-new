@@ -6,6 +6,23 @@ template(name="adminUserList")
     .row
       .col-lg-12
         .ibox.float-e-margins
+          .ibox-title 
+            h5 Button Usage
+            +iboxTools
+          .ibox-content
+            //p View: See the details for the user
+            h3 Re-Analyze: 
+            p Re-analyze the domain using the current crawled pages
+            p If we upgrade algorithm, analyze it without re-crawl the pages
+            p
+            br
+            h3 Re-Profile: 
+            p Re-profile the domain
+            p crawl first and then analyze
+
+    .row
+      .col-lg-12
+        .ibox.float-e-margins
           .ibox-title
             h5 User List
           .ibox-content(style="overflow: auto;")
@@ -36,6 +53,9 @@ template(name="adminUserList")
                       td {{character.ruggedness}}
                       td {{createdBy}}
                       td {{createdAt}}
+                      td
+                        button.btn.btn-primary.analyze-btn Re-Analyze
+                        button.btn.btn-primary.profile-btn Re-Profile
 
     
       .col-lg-12

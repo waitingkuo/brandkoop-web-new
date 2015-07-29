@@ -210,3 +210,18 @@ FlowRouter.route('/admin/userList', {
   }
 
 });
+
+FlowRouter.route('/admin/instantProfiles', {
+  triggersEnter: [requireLogin],
+
+  subscriptions() {
+    this.register('adminInstantProfiles', Meteor.subscribe('adminInstantProfiles'));
+  },
+
+  action() {
+    FlowLayout.render('layout', {
+      main: 'adminInstantProfiles'
+    });
+  }
+
+});

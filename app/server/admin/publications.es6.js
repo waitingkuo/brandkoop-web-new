@@ -45,3 +45,16 @@ Meteor.publish('websiteList', function(){
   ]
 
 });
+
+Meteor.publish('adminInstantProfiles', function() {
+
+  let fields = {
+    domain: 1,
+    character: 1,
+    profiled: 1
+  };
+  let profiles = InstantProfiles.find({}, {fields: fields});
+
+  return profiles;
+  
+});
