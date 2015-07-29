@@ -7,19 +7,19 @@ Charts.makeCharacterChart = function(id, character) {
     "theme": "light",
     "dataProvider": [ {
       "criteria": "Sincerity",
-      "score": character.sincerity
+      "score": parseInt(character.sincerity)
     }, {
       "criteria": "Excitement",
-      "score": character.excitement
+      "score": parseInt(character.excitement)
     }, {
       "criteria": "Competence",
-      "score": character.competence
+      "score": parseInt(character.competence)
     }, {
       "criteria": "Sophistication",
-      "score": character.sophistication
+      "score": parseInt(character.sophistication)
     }, {
       "criteria": "Ruggedness",
-      "score": character.ruggedness
+      "score": parseInt(character.ruggedness)
     } ],
     "valueAxes": [ {
       "axisTitleOffset": 20,
