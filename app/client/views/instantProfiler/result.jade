@@ -8,46 +8,123 @@ template(name="instantProfilerResult")
 
 template(name="instantProfilerResultProfiled")
   .row
-    .col-lg-12
+    .col-md-12
       .text-center
-        h1 Brandkoop Instant Profiler
-        p {{profile.domain}}
+        h1 Brand Personality Insights of
+        h3 {{profile.domain}}
 
   br
   br
   br
 
   .row
-    .col-lg-12
-      .ibox.float-e-margins(style="max-width: 720px; margin: 0 auto;")
+    .col-md-12
+      //.ibox.float-e-margins(style="max-width: 720px; margin: 0 auto;")
+      .ibox.float-e-margins
         .ibox-title
           h5 Website Character
 
         .ibox-content
-          #character.character-chart
+          .row
+            .col-md-6
+              #character-chart.character-chart
+            .col-md-6
+              #character-description
+                h3 
+                section
+                  h3 
+                    b 5 broad orientations of the Brand Pentagon containing 40 specific core values, this is how all brands inspire their audience.
+                  p
+                    b Welcome to the Science of Branding!
+                  p
+                    b How Does Your Audience See Your Brand?
+                  p As you might expect, the language you use on your site turns some people into fans and leaves others indifferent because they simply value different things. By being aware of these connections you can evaluate your content in terms of the values it embodies, and make modifications to your communication strategy if necessary.
+                  p Some famous marketing campaigns have focused on specific core values to create powerful emotions in the hearts of their audience.
+                  ul(style="margin-left: 20px;")
+                    li "Think Different" - Imaginative
+                    li "Just Do It" - Successful
+                    li "Got Milk?" - Down-to-Earth
+                    li "You’re in Good Hands with Allstate" - Secure
+                    li "We Try Harder" - Hard Working.
+                
+                h3
+                section
+                  h3 
+                    b Brand Character: "The Pentagon"
+                  p Your brand character pentagon represents either a concentrated, balanced, or diversified brand depending on how many of the five dimensions you engage in. Concentrated if you clearly only prioritize one dimension, balanced in the case of two dimensions, or diversified for three dimensions. Each dimension stands for a broad orientation of the brand. The five dimensions are:
+                  ul(style="margin-left: 20px;")
+                    li Sincere, "We care about people."
+                    li Excitement, "Let’s have some fun!"
+                    li Competence, "Trust us, we are the experts."
+                    li Sophisticated, "Looks and Status are ours."
+                    li Ruggedness, "We’re tough, period." (also includes outdoorsy brands)
+                  p As a rule of thumb, early stage brands should strive to adopt a concentrated or balanced brand character approach in order to send a very clear message to their audience. Later on, brands often tend to diversify to appeal to a broader audience. They become more mainstream.
+
+
+                h3
+                section
+                  p 
+                    h3 
+                      b Brand Point: 
+                    span Be true to your main orientation, that's the larger purpose of your brand.
+
 
   br
   br
   br
 
   .row
-    .col-lg-12
-      .ibox.float-e-margins(style="max-width: 720px; margin: 0 auto;")
+    .col-md-12
+      //.ibox.float-e-margins(style="max-width: 720px; margin: 0 auto;")
+      .ibox.float-e-margins
         .ibox-title
           h5 Website Values
 
         .ibox-content
-          #values.values-chart
+          .row
+            .col-md-6
+              #values-chart.values-chart
+            .col-md-6
+              #values-description
+                h3
+                section
+                  h3 Brand Values: Primary Core Values
+                  p Your primary core values consist of the key values your brand is known for. It could be just one core value, but no more than five. These values are closely associated to your brand’s beliefs, it is what the brand stands for, its purpose. The aim of these values is to inspire others by appealing to their aspirations, your brand then becomes a bridge between who your customers are and who they want to be.
 
-    //.col-lg-12(style="text-align: center;")
-    //  br
-    //  br
-    //  br
-    //  +instantProfilerResultTweet
+                h3
+                section
+                  h3 Core Values Analysis
+                  p Based on your core values, is your brand adopting a concentrated, balanced, or diversified communication strategy?  Here is how to find out:
+   
+                  ul(style="margin-left: 20px;")
+                    li Concentrated: 1 or 2 dominant values belonging to the same orientation.
+                    li Balanced: 2 to 4 dominant values belonging to no more than 2 orientations.
+                    li Diversified: 5 equally distributed dominant core values belonging to two or more orientations.
+
+                  p Strengthening your brand personality is achieved by producing content (text, image, video) associated with your dominant core values. The resulting engaging emotional connection with your audience leads them to action. 
+
+                h3 
+                section
+                  h3 
+                    b Brand Point: 
+                    span "Adopt a core value based branding strategy by focusing on content that makes your primary core values shine."
+
+
+
+
+
+
+    .col-md-12(style="text-align: center;")
+      br
+      br
+      +instantProfilerResultTweet text=tweetText
+      br
+      br
+      br
 
 template(name="instantProfilerResultProfiling")
   .row
-    .col-lg-12
+    .col-md-12
       .text-center
         h1 Profiling ...
         p {{profile.domain}}
