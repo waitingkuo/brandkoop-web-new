@@ -8,8 +8,6 @@ meteor-platform
 mquandalle:jade
 grigio:babel
 twbs:bootstrap
-meteorhacks:flow-router
-meteorhacks:flow-layout
 less
 fortawesome:fontawesome
 em0ney:amcharts
@@ -29,3 +27,5 @@ underscore
 d3
 numeral:numeral
 aashu28:jquery-steps
+kadira:flow-router
+kadira:blaze-layout
