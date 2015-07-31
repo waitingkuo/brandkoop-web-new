@@ -4,7 +4,7 @@
   line-height: 30px;
   height: 20px;
 }
-.wizard ul {
+.wizard .steps {
   display: none;
 }
 
@@ -23,3 +23,10 @@
   right: 20px;
 }
 
+
+/* vertical middle for brand point*/
+.brand-point {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}

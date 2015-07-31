@@ -32,12 +32,13 @@ template(name="instantProfilerResultProfiled")
               #character-description
                 h3 
                 section
-                  h3 
+                  p
                     b 5 broad orientations of the Brand Pentagon containing 40 specific core values, this is how all brands inspire their audience.
                   p
                     b Welcome to the Science of Branding!
-                  p
+                  h2 
                     b How Does Your Audience See Your Brand?
+
                   p As you might expect, the language you use on your site turns some people into fans and leaves others indifferent because they simply value different things. By being aware of these connections you can evaluate your content in terms of the values it embodies, and make modifications to your communication strategy if necessary.
                   p Some famous marketing campaigns have focused on specific core values to create powerful emotions in the hearts of their audience.
                   ul(style="margin-left: 20px;")
@@ -49,10 +50,10 @@ template(name="instantProfilerResultProfiled")
                 
                 h3
                 section
-                  h3 
+                  h2 
                     b Brand Character: "The Pentagon"
                   p Your brand character pentagon represents either a concentrated, balanced, or diversified brand depending on how many of the five dimensions you engage in. Concentrated if you clearly only prioritize one dimension, balanced in the case of two dimensions, or diversified for three dimensions. Each dimension stands for a broad orientation of the brand. The five dimensions are:
-                  ul(style="margin-left: 20px;")
+                  ol(style="")
                     li Sincere, "We care about people."
                     li Excitement, "Let’s have some fun!"
                     li Competence, "Trust us, we are the experts."
@@ -63,9 +64,8 @@ template(name="instantProfilerResultProfiled")
 
                 h3
                 section
-                  p 
-                    h3 
-                      b Brand Point: 
+                  p.brand-point 
+                    b Brand Point: 
                     span Be true to your main orientation, that's the larger purpose of your brand.
 
 
@@ -88,24 +88,27 @@ template(name="instantProfilerResultProfiled")
               #values-description
                 h3
                 section
-                  h3 Brand Values: Primary Core Values
+                  h2 
+                    b Brand Values: Primary Core Values
                   p Your primary core values consist of the key values your brand is known for. It could be just one core value, but no more than five. These values are closely associated to your brand’s beliefs, it is what the brand stands for, its purpose. The aim of these values is to inspire others by appealing to their aspirations, your brand then becomes a bridge between who your customers are and who they want to be.
 
                 h3
                 section
-                  h3 Core Values Analysis
+                  h2 
+                    b Core Values Analysis
                   p Based on your core values, is your brand adopting a concentrated, balanced, or diversified communication strategy?  Here is how to find out:
    
                   ul(style="margin-left: 20px;")
                     li Concentrated: 1 or 2 dominant values belonging to the same orientation.
                     li Balanced: 2 to 4 dominant values belonging to no more than 2 orientations.
                     li Diversified: 5 equally distributed dominant core values belonging to two or more orientations.
+                  br
 
                   p Strengthening your brand personality is achieved by producing content (text, image, video) associated with your dominant core values. The resulting engaging emotional connection with your audience leads them to action. 
 
                 h3 
                 section
-                  h3 
+                  p.brand-point
                     b Brand Point: 
                     span "Adopt a core value based branding strategy by focusing on content that makes your primary core values shine."
 
@@ -117,7 +120,12 @@ template(name="instantProfilerResultProfiled")
     .col-md-12(style="text-align: center;")
       br
       br
+      //p {{tweetText}}
+      h2 
+        b Tweet Your Profile
       +instantProfilerResultTweet text=tweetText
+      //#tweet
+      //+shareit
       br
       br
       br
