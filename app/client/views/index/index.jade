@@ -1,5 +1,6 @@
 template(name="index")
-  .wrapper.wrapper-content.animated.fadeInRight
+  br
+  .animated.fadeInRight
     .row
       .col-md-12
         .ibox.float-e-margins(style="max-width: 720px; margin: 0 auto;")
@@ -9,14 +10,17 @@ template(name="index")
             br
             br
             br
-            h1 The Science Of Branding At Your Fingertips
+            h1 
+              b A Tool to Discover Your Brandʼs* Personality
+            p *Not a “brand”? Websites and blogs work, too. 
+            br
+            br
+            br
             br
             //h3 Monitor. Optimze. Partner.
             h3 Instantly Profile Your Brand's Personality
             br
-            br
-            br
-            //form#instant-profiler-form
+
             +autoForm collection="InstantProfiles" id="insertInstantProfileForm" type="normal"
               .input-group
                 //input#instant-profiler-url.form-control(type="text", style="height: 60px;", placeholder="Website URL")
@@ -27,8 +31,33 @@ template(name="index")
 
 
 
+  br
+  br
+  .wrap.animated.fadeInRight
+    .row
+      .col-md-8.col-md-offset-2
+            .row
+              .col-lg-6
+                p(style="line-height: 26px;") Using a process of natural language processing, we analyze the text on your website through the lens of our proprietary Brand Value Dictionary to give a distinct brand personality profile of your ecommerce store, website, or any other online text-based content.
+              .col-lg-6
+                p(style="line-height: 26px;") Know yourself before you sell yourself. Branding first, marketing second. Understanding your brandʼs personality helps you connect with your audience in new, exciting, more humanistic ways. 
 
-  .wrapper.wrapper-content.animated.fadeInRight
+    br
+    br
+    br
+    br
+    br
+    .row
+      .col-md-8.col-md-offset-2
+        blockquoate
+          h3  
+            b "A brand for a company is like a reputation for a person. You earn reputation by trying to do hard things well."
+            span - Jeff Bezos
+  br
+  br
+  br
+
+  .wrap.animated.fadeInRight
     .row
       .col-md-4
         +Template.dynamic template="exampleProfile" data=slack
@@ -42,6 +71,38 @@ template(name="index")
       .col-md-4
         +Template.dynamic template="exampleProfile" data=redBull
 
+
+    br
+    br
+    br
+    br
+    .row
+      .col-md-12
+        .ibox.float-e-margins(style="max-width: 720px; margin: 0 auto;")
+          //.ibox-title
+          //  h5 wew
+          .ibox-content(style="text-align: center;")
+            br
+            h1 
+              b It's Time to Profile Your Brand
+            br
+            br
+            h3 Instantly Profile Your Brand's Personality, it's free.
+            br
+            +autoForm collection="InstantProfiles" id="insertInstantProfileForm" type="normal"
+              .input-group
+                //input#instant-profiler-url.form-control(type="text", style="height: 60px;", placeholder="Website URL")
+                +afFieldInput name="domain" style="height: 60px;" placeholder="Website URL"
+                span.input-group-btn
+                  button.btn.btn-primary(type="submit", style="height: 60px; width: 100px;") Profile
+              .help-block(style="color: red;") {{afFieldMessage name='domain'}}
+
+    br
+    br
+    br
+    br
+    br
+
 template(name="exampleProfile")
   .ibox
     .ibox-content.product-box
@@ -52,10 +113,10 @@ template(name="exampleProfile")
           img(src="{{img}}" width="160")
       .product-desc
         small.text-muted
-        a.product-name(href="#")  {{name}}
+        a.product-name.see-profile(href="#")  {{name}}
         .small.m-t-xs 
         .m-t.text-right
           a.btn.btn-xs.btn-outline.btn-primary(href="#", style="height: 30px; line-height: 30px;") 
-            span See Profile
+            span.see-profile See Profile
             i.fa.fa-long-arrow-right
 
