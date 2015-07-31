@@ -25,7 +25,7 @@ FlowRouter.route('/', {
     if (Meteor.userId()) {
       FlowRouter.go('/home');
     } else {
-      FlowLayout.render('layout2', {
+      BlazeLayout.render('layout2', {
         main: 'index'
       });
     }
@@ -43,7 +43,7 @@ FlowRouter.route('/instantProfiler/result/:instantProfileId', {
   },
 
   action(params) {
-    FlowLayout.render('layout2', {
+    BlazeLayout.render('layout2', {
       main: 'instantProfilerResult'
     });
   }
@@ -55,7 +55,7 @@ FlowRouter.route('/instantProfiler/result/:instantProfileId', {
  */
 FlowRouter.route('/signup', {
   action() {
-   FlowLayout.render('layout2', {
+   BlazeLayout.render('layout2', {
     main: 'signup'
    });
   }
@@ -66,7 +66,7 @@ FlowRouter.route('/login', {
     if (Meteor.userId()) {
       FlowRouter.go('/home');
     } else {
-      FlowLayout.render('layout2', {
+      BlazeLayout.render('layout2', {
         main: 'login'
       });
     }
@@ -81,7 +81,7 @@ FlowRouter.route('/welcome', {
   triggersEnter: [requireLogin],
   action(params) {
 
-   FlowLayout.render('layout2', {
+   BlazeLayout.render('layout2', {
     main: 'welcome'
    });
 
@@ -95,7 +95,7 @@ FlowRouter.route('/website/:websiteId/welcome2', {
   },
   action(params) {
 
-   FlowLayout.render('layout2', {
+   BlazeLayout.render('layout2', {
     main: 'welcome2'
    });
 
@@ -140,7 +140,7 @@ FlowRouter.route('/website/:websiteId/character', {
 
   action(params) {
     FlowRouter.subsReady('websiteCharacter', function() {
-      FlowLayout.render('layout', {
+      BlazeLayout.render('layout', {
         main: 'websiteCharacter'
       });
     });
@@ -158,7 +158,7 @@ FlowRouter.route('/website/:websiteId/values', {
 
   action(params) {
     FlowRouter.subsReady('websiteValue', function() {
-      FlowLayout.render('layout', {
+      BlazeLayout.render('layout', {
         main: 'websiteValues'
       });
     });
@@ -175,7 +175,7 @@ FlowRouter.route('/website/:websiteId/brandcloud', {
 
   action(params) {
     FlowRouter.subsReady('websiteWordcloud', function() {
-      FlowLayout.render('layout', {
+      BlazeLayout.render('layout', {
         main: 'websiteBrandcloud'
       });
     });
@@ -204,7 +204,7 @@ FlowRouter.route('/admin/userList', {
   },
 
   action() {
-    FlowLayout.render('layout', {
+    BlazeLayout.render('layout', {
       main: 'adminUserList'
     });
   }
@@ -219,7 +219,7 @@ FlowRouter.route('/admin/instantProfiles', {
   },
 
   action() {
-    FlowLayout.render('layout', {
+    BlazeLayout.render('layout', {
       main: 'adminInstantProfiles'
     });
   }

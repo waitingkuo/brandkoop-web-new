@@ -131,10 +131,26 @@ template(name="instantProfilerResultProfiled")
       br
 
 template(name="instantProfilerResultProfiling")
-  .row
-    .col-md-12
-      .text-center
-        h1 Profiling ...
-        p {{profile.domain}}
       
     
+  .row
+    .col-lg-12
+      .wrapper.wrapper-content.animated.fadeInRight.article
+        .row
+          .col-lg-12
+            .ibox-content
+              .text-center
+                .sk-spinner.sk-spinner-pulse
+                h1 So ... right now we're analyzing your site.
+                h3 {{profile.domain}}
+                br
+
+                h3 We gotta extract some words and crunch some numbers to give the best profile possible. 
+                h3 This will take about 1 minute. 
+
+              br
+
+              .text-center
+                //a.btn.btn-primary(href="{{pathFor 'domainCharacter'}}") Get a Head Start
+                p Result will appear soon.
+
