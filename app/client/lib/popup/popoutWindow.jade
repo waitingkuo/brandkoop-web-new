@@ -1,0 +1,65 @@
+template(name="signupPopup")
+  .modal.inmodal#signupPopup(tabindex="-1", role="dialog", aria-hidden="true")
+    .modal-dialog
+      .modal-content.animated.bounceInRight
+        .modal-header 
+          .button.close(data-dismiss="modal")
+            span(aria-hidden="true") &times;
+            span.sr-only Close
+          //i.fa.fa-laptop.modal-icon
+          h4.modal-title Sign Up Now
+          //small.font-bold {{smallTitle}}
+        .modal-body
+          p Want to get a full functional profile? Sign up now, it's free!
+          button.btn.btn-primary#signupBtn Sign Up
+
+        .modal-footer
+          .button.btn.btn-white(type="button", data-dismiss="modal") Close
+
+template(name="popupWindow")
+  .modal.inmodal#popoutWindow(tabindex="-1", role="dialog", aria-hidden="true")
+    .modal-dialog
+      .modal-content.animated.bounceInRight
+        .modal-header 
+          .button.close(data-dismiss="modal")
+            span(aria-hidden="true") &times;
+            span.sr-only Close
+          //i.fa.fa-laptop.modal-icon
+          h4.modal-title {{title}}
+          small.font-bold {{smallTitle}}
+        .modal-body
+          p
+            strong {{strongDescription}}
+          each descriptions
+            p {{this}}
+
+        .modal-footer
+          .button.btn.btn-white(type="button", data-dismiss="modal") Close
+
+template(name="infoWindow")
+  .modal.inmodal#infoWindow(tabindex="-1", role="dialog", aria-hidden="true")
+    .modal-dialog
+      .modal-content.animated.bounceInRight
+        .modal-header 
+          .button.close(data-dismiss="modal")
+            span(aria-hidden="true") &times;
+            span.sr-only Close
+          //i.fa.fa-laptop.modal-icon
+          h4.modal-title {{title}}
+          small.font-bold {{smallTitle}}
+        .modal-body
+          if imageUrl
+            div(style="text-align: center;")
+              img(src="{{imageUrl}}" width="{{imageWidth}}")
+            br
+          p
+            strong {{strongDescription}}
+          each descriptions
+            p {{{this}}}
+
+        .modal-footer
+          .button.btn.btn-white(type="button", data-dismiss="modal") Close
+
+template(name="infoButton")
+  button.btn.btn-info.btn-lg.btn-circle(type="button", data-toggle="modal", data-target="#infoWindow")
+    i.fa.fa-info

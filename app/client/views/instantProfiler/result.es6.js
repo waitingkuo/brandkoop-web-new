@@ -1,5 +1,20 @@
 Meteor.startup(function() {
 
+  // popup event
+  Template.instantProfilerResultProfiled.onRendered(function() {
+    window.onscroll = function() {
+       if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight-10) {
+         $('#signupPopup').modal('show');
+         window.onscroll = undefined;
+       }
+    };
+
+  });
+  // remove popup event
+  Template.instantProfilerResultProfiled.onDestroyed(function() {
+    window.onscroll = undefined;
+  });
+
   Template.instantProfilerResult.helpers({
 
     profile() {
