@@ -5,7 +5,7 @@ Websites.attachSchema(new SimpleSchema({
   userId: {
     type: String,
     autoValue() {
-      return this.userId
+      return this.userId;
     }
   },
 

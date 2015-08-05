@@ -14,6 +14,7 @@ function requireLogin(context) {
 
 FlowRouter.subscriptions = function() {
   this.register('userWebsites', Meteor.subscribe('userWebsites'));
+  this.register('userTwitters', Meteor.subscribe('userTwitters'));
 };
 
 
@@ -182,16 +183,60 @@ FlowRouter.route('/website/:websiteId/brandcloud', {
   }
 });
 
-FlowRouter.route('/social/:twitterId/character', {
-  triggersEnter: [requireLogin]
+
+FlowRouter.route('/twitter/:twitterId/character', {
+  triggersEnter: [requireLogin],
+  action(params) {
+   // FlowRouter.subsReady('websiteWordcloud', function() {
+      BlazeLayout.render('layout', {
+        main: 'twitterCharacter'
+      });
+   //// })
+  }
 });
-FlowRouter.route('/social/:twitterId/values', {
-  triggersEnter: [requireLogin]
+FlowRouter.route('/twitter/:twitterId/values', {
+  triggersEnter: [requireLogin],
+  action(params) {
+    BlazeLayout.render('layout', {
+      main: 'twitterValues'
+    });
+  }
 });
-FlowRouter.route('/social/:twitterId/brandcloud', {
-  triggersEnter: [requireLogin]
+FlowRouter.route('/twitter/:twitterId/brandcloud', {
+  triggersEnter: [requireLogin],
+  action(params) {
+    BlazeLayout.render('layout', {
+      main: 'twitterBrandcloud'
+    });
+  },
 });
 
+
+/*
+ * Twitter not set
+ */
+FlowRouter.route('/twitterNotSet', {
+  triggetsEnter: [requireLogin],
+  action(params, queryParams) {
+    let title = queryParams.title;
+    BlazeLayout.render('layout', {
+      main: 'twitterNotSet',
+      title: title,
+    });
+  },
+});
+
+/*
+ * Settings
+ */
+FlowRouter.route('/settings', {
+  triggersEnter: [requireLogin],
+  action(params) {
+    BlazeLayout.render('layout', {
+      main: 'settings',
+    });
+  },
+});
 
 /*
  * Admin

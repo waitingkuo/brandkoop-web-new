@@ -27,7 +27,16 @@ Meteor.startup(function() {
       if (!!website) {
         return website.domain;
       }
-    }
+    },
+
+    hasTwitter() {
+      return false;
+      //return !!Twitters.findOne();
+    },
+
+    twitter() {
+      return Twitters.findOne();
+    },
 
   });
 

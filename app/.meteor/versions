@@ -1,6 +1,8 @@
 aashu28:jquery-steps@0.0.7
 accounts-base@1.2.0
+accounts-oauth@1.1.5
 accounts-password@1.1.1
+accounts-twitter@1.0.4
 accounts-ui@1.1.5
 accounts-ui-unstyled@1.1.7
 alanning:roles@1.2.13
@@ -14,6 +16,7 @@ binary-heap@1.0.3
 blaze@2.1.2
 blaze-tools@1.0.3
 boilerplate-generator@1.0.3
+bozhao:link-accounts@1.1.4
 callback-hook@1.0.3
 check@1.0.5
 coffeescript@1.0.6
@@ -56,6 +59,8 @@ mquandalle:jade@0.4.3
 mquandalle:jade-compiler@0.4.3
 npm-bcrypt@0.7.8_2
 numeral:numeral@1.5.3
+oauth@1.1.4
+oauth1@1.1.4
 observe-sequence@1.0.6
 ordered-dict@1.0.3
 random@1.0.3
@@ -74,6 +79,7 @@ srp@1.0.3
 templating@1.1.1
 tracker@1.0.7
 twbs:bootstrap@3.3.5
+twitter@1.1.4
 ui@1.0.6
 underscore@1.0.3
 url@1.0.4

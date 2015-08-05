@@ -16,6 +16,17 @@ Meteor.startup(function() {
     return websites;
 
   });
+  Meteor.publish('userTwitters', function() {
+
+    twitters = Twitters.find({
+      userId: this.userId
+    });
+
+    return twitters;
+
+  });
+
+
 
   Meteor.publish('website', function(websiteId) {
 

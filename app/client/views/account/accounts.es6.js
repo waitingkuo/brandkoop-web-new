@@ -16,3 +16,4 @@ AccountsTemplates.configure({
   }
 
 });
+

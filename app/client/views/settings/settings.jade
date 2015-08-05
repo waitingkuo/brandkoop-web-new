@@ -1,0 +1,18 @@
+template(name="settings")
+
+  +pageHeading title='Settings' category='Settings'
+
+
+  .wrapper.wrapper-content.animated.fadeInRight
+    .row
+      .col-lg-12
+        .ibox.float-e-margins
+          .ibox-title
+            h5 Twitter Account
+          .ibox-content
+            //h3 Twitter Login
+            if hasTwitter
+              h3 Hi {{twitter.twitterScreenName}}
+            else
+              button#twitter-login.btn.btn-primary Twitter Login
+

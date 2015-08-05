@@ -53,12 +53,20 @@ template(name='navigation')
             span.nav-label Social Profile
             span.fa.arrow
           ul.nav.nav-second-level
-            //li
-            //  a(href="{{pathFor route='socialCharacter'}}") Character
-            //li
-            //  a(href="{{pathFor route='socialValues'}}") Values
-            //li
-            //  a(href="{{pathFor route='socialCloud'}}") Brand Cloud
+            if hasTwitter
+              li
+                a(href="/twitter/{{twitterId}}/character") Character
+              li
+                a(href="/twitter/{{twitterId}}/values") Values
+              li
+                a(href="/twitter/{{twitterId}}/brandcloud") Brand Cloud
+            else
+              li
+                a(href="/twitterNotSet?title=Social Character") Character
+              li
+                a(href="/twitterNotSet?title=Social Values") Values
+              li
+                a(href="/twitterNotSet?title=Social Cloud") Brand Cloud
 
         li
           a(href="#")
@@ -66,12 +74,21 @@ template(name='navigation')
             span.nav-label Brand Harmony
             span.fa.arrow
           ul.nav.nav-second-level
-            //li
-            //  a(href="{{pathFor route='harmonyCharacter'}}") Character
-            //li
-            //  a(href="{{pathFor route='harmonyValues'}}") Values
-            //li
-            //  a(href="{{pathFor route='harmonyCloud'}}") Brand Cloud
+            if hasTwitter
+              li
+                a(href="/harmony/:websiteId/:twitterId/character") Character
+              li
+                a(href="/harmony/:websiteId/:twitterId/values") Values
+              li
+                a(href="/harmony/:websiteId/:twitterId/brandcloud") Brand Cloud
+            else
+              li
+                a(href="/twitterNotSet?title=Character Harmony") Character
+              li
+                a(href="/twitterNotSet?title=Values Harmony") Values
+              li
+                a(href="/twitterNotSet?title=Cloud Harmony") Brand Cloud
+
         //li
         //  a(href="{{pathFor route='brandBlueprint'}}")
         //    i.fa.fa-pencil-square-o
@@ -87,10 +104,10 @@ template(name='navigation')
         //    i.fa.fa-share
         //    span.nav-label Share
 
-        //li
-        //  a(href="{{pathFor route='settings'}}")
-        //    i.fa.fa-cog
-        //    span.nav-label Settings
+        li
+          a(href="/settings")
+            i.fa.fa-cog
+            span.nav-label Settings
 
         if isInRole 'admin'
           li
