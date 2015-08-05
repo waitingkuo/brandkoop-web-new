@@ -1,13 +1,13 @@
 Popup = {
 
-  popoutIfFirstVisit() {
+  popupIfFirstVisit() {
 
     let cookieName = FlowRouter.Route.name + ':visited';
 
     if (! $.cookie(cookieName) ) {
 
       $.cookie(cookieName, 'true');
-      $('#popoutWindow').modal();
+      $('#popupWindow').modal();
 
     }
   },
@@ -28,6 +28,8 @@ Popup = {
     for (let name of routeNames) {
       $.removeCookie(name + ':visited')
     }
+    //FIXME
+    $.removeCookie(':visited')
 
   },
 

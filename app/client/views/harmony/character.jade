@@ -1,0 +1,19 @@
+template(name="harmonyCharacter")
+
+  +pageHeading title='Character Harmony' category='Harmony'
+
+  .wrapper.wrapper-content.animated.fadeInRight
+    .row
+      .col-lg-12
+        .ibox.float-e-margins
+          .ibox-title
+            h5 Character Harmony: Website vs Social
+          .ibox-content
+            .row
+              .col-lg-6
+                .character-chart#website-character
+              .col-lg-6
+                .character-chart#twitter-character
+
+  //+Template.dynamic template="popupWindow" data=popupData
+  //+Template.dynamic template="infoWindow" data=infoData

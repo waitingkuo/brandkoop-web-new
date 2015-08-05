@@ -7,18 +7,28 @@ Meteor.startup(function() {
     },
 
     twitter() {
-      return witters.findOne();
+      return Twitters.findOne();
     },
 
   });
 
   Template.settings.events({
 
-    'click #twitter-login': function() {
+    'click #twitterLogin': function() {
 
       Meteor.linkWithTwitter();
 
     },
+
+    'click #resetTwitter': function() {
+      let twitter = Twitters.findOne();
+      Twitters.remove(twitter._id);
+    },
+
+    'click #resetPopupWindow': function() {
+      Popup.resetAllCookies()
+    },
+
 
   });
 

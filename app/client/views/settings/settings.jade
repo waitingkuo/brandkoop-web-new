@@ -13,6 +13,19 @@ template(name="settings")
             //h3 Twitter Login
             if hasTwitter
               h3 Hi {{twitter.twitterScreenName}}
-            else
-              button#twitter-login.btn.btn-primary Twitter Login
+              
 
+            else
+              button#twitterLogin.btn.btn-primary Twitter Login
+    
+      if isInRole 'admin'
+        .col-lg-12
+          .ibox.float-e-margins
+            .ibox-title
+              h5 Admin Only
+            .ibox-content
+              if hasTwitter
+                  button#resetTwitter.btn.btn-danger Reset Twitter
+              br
+              br
+              button#resetPopupWindow.btn.btn-info Reset Popup Window

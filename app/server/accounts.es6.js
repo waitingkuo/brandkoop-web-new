@@ -17,18 +17,25 @@ Accounts.onLogin(function(loginAttempt) {
     let userId = user._id
     let twitterScreenName = user.services.twitter.screenName;
     let twitterUserId = user.services.twitter.id;
+    let accessToken = user.services.twitter.accessToken;
+    let accessTokenSecret = user.services.twitter.accessTokenSecret;
     let twitter = Twitters.findOne({
       userId: userId,
       twitterUserId: twitterUserId,
     });
 
     if (!twitter) {
+      // autoValue take this.userId
+      this.userId = userId;
       Twitters.insert({
         userId: userId,
         twitterUserId: twitterScreenName,
         twitterScreenName: twitterScreenName,
+        accessToken: accessToken,
+        accessTokenSecret: accessTokenSecret,
       });
     }
+    console.log(userId);
 
   }
 

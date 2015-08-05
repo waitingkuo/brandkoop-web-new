@@ -47,7 +47,7 @@ Meteor.startup(function() {
       event.preventDefault();
 
       // Hack FIXME
-      Meteor.call('insertInstantProfile', this.domain, function(err, result) {
+      Meteor.call('insertInstantProfile', this.domain, false, '', '', function(err, result) {
         if (!err) {
           let id = result;
           FlowRouter.go('/instantProfiler/result/'+id);
@@ -66,10 +66,25 @@ AutoForm.hooks({
     onSubmit(insertDoc) {
 
       this.event.preventDefault();
-      Meteor.call('insertInstantProfile', insertDoc.domain, function(err, result) {
+
+      let uuid = $.cookie('instanProfilerBrowerUUID')
+      if (!uuid) {
+        uuid = Random.id();
+        $.cookie('instanProfilerBrowerUUID');
+      }   
+
+      let ip = headers.getClientIP();
+
+      Meteor.call('insertInstantProfile', insertDoc.domain, true, ip, uuid, function(err, result) {
         if (!err) {
-          let id = result;
-          FlowRouter.go('/instantProfiler/result/'+id);
+          if (result === 'limited') {
+
+            FlowRouter.go('/instantProfiler/limited');
+
+          } else {
+            let id = result;
+            FlowRouter.go('/instantProfiler/result/'+id);
+          }
         }
       });
 

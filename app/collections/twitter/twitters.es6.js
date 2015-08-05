@@ -5,9 +5,10 @@ Twitters.attachSchema(new SimpleSchema({
   userId: {
     type: String,
     label: 'userId',
-    autoValue() {
-      return this.userId;
-    }
+    //autoValue() {
+    //  console.log(this.userId);
+    //  return this.userId;
+   // }
   },
 
   twitterUserId: {
@@ -20,6 +21,14 @@ Twitters.attachSchema(new SimpleSchema({
     label: 'Twitter Account Name',
   },
 
+  accessToken: {
+    type: String,
+  },
+
+  accessTokenSecret: {
+    type: String,
+  },
+
 
 }));
 
@@ -29,16 +38,20 @@ if (Meteor.isServer) {
 
     let twitterId = doc._id;
 
+    // FIXME
+    // onLogin cannot get userId currently
+    let myUserId = doc.userId;
+
     TwitterCharacters.insert({
-      userId: userId,
+      userId: myUserId,
       twitterId: twitterId,
     });
     TwitterValues.insert({
-      userId: userId,
+      userId: myUserId,
       twitterId: twitterId,
     });
     TwitterWordclouds.insert({
-      userId: userId,
+      userId: myUserId,
       twitterId: twitterId,
     });
 
@@ -49,6 +62,8 @@ if (Meteor.isServer) {
   });
 
   Twitters.after.remove(function(userId, doc) {
+
+    let twitterId = doc._id;
 
     TwitterCharacters.remove({
       userId: userId,
@@ -70,6 +85,10 @@ if (Meteor.isServer) {
 
     insert(userId, doc) {
       return !!userId;
+    },
+
+    remove(userId, doc) {
+      return userId === doc.userId;
     },
 
   });

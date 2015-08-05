@@ -14,3 +14,7 @@
   opacity:1;
   transition-delay:0s;
 }
+
+#login-buttons {
+  display: none;
+}

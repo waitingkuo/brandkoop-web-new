@@ -30,12 +30,15 @@ Meteor.startup(function() {
     },
 
     hasTwitter() {
-      return false;
-      //return !!Twitters.findOne();
+      return !!Twitters.findOne();
     },
 
     twitter() {
       return Twitters.findOne();
+    },
+
+    twitterId() {
+      return Twitters.findOne()._id;
     },
 
   });

@@ -76,11 +76,11 @@ template(name='navigation')
           ul.nav.nav-second-level
             if hasTwitter
               li
-                a(href="/harmony/:websiteId/:twitterId/character") Character
+                a(href="/harmony/{{websiteId}}/{{twitterId}}/character") Character
               li
-                a(href="/harmony/:websiteId/:twitterId/values") Values
+                a(href="/harmony/{{websiteId}}/{{twitterId}}/values") Values
               li
-                a(href="/harmony/:websiteId/:twitterId/brandcloud") Brand Cloud
+                a(href="/harmony/{{websiteId}}/{{twitterId}}/brandcloud") Brand Cloud
             else
               li
                 a(href="/twitterNotSet?title=Character Harmony") Character

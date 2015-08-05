@@ -10,11 +10,34 @@ Meteor.startup(function() {
   Meteor.methods({
 
     // instant profiler
-    insertInstantProfile(domain) {
+    insertInstantProfile(domain, limited, ip, uuid) {
 
       // remove http:// or https://
       if (domain.match(SimpleSchema.RegEx.Url)) {
         domain = url.parse(domain).host;
+      }
+
+      let time = moment().subtract(5, 'minutes').toDate();
+      if (limited) {
+        if (InstantProfilerRecords.findOne({
+          ip:ip, 
+          createdAt: {$gt: time},
+        })) {
+          return 'limited'
+        }
+
+        if (InstantProfilerRecords.findOne({
+          uuid:uuid,
+          createdAt: {$lt: time},
+        })) {
+          return 'limited'
+        }
+
+        InstantProfilerRecords.insert({
+          ip: ip,
+          uuid: uuid,
+          createdAt: new Date(),
+        });
       }
 
       let profile = InstantProfiles.findOne({domain: domain});
@@ -57,9 +80,20 @@ Meteor.startup(function() {
           domain: website.domain
         }
       });
+    },
+
+    profileTwitter(twitterId) {
+      let twitter = Twitters.findOne({_id: twitterId});
+      HTTP.post(profilerUrl+'/v3/profiler/profiletwitter', {
+        params: {
+          twitterId: twitterId,
+          screenName: twitter.twitterScreenName,
+          accessToken: twitter.accessToken,
+          accessTokenSecret: twitter.accessTokenSecret,
+        }
+      });
     }
-
-
+    
 
     
   });

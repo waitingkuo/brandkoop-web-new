@@ -72,5 +72,38 @@ Meteor.startup(function() {
 
   });
 
+  Meteor.publish('twitterCharacter', function(twitterId) {
+
+    let twitterCharacter = TwitterCharacters.find({
+      twitterId: twitterId,
+      userId: this.userId
+    });
+
+    return twitterCharacter;
+
+  });
+
+  Meteor.publish('twitterValues', function(twitterId) {
+
+    let twitterValue = TwitterValues.find({
+      twitterId: twitterId,
+      userId: this.userId
+    });
+
+    return twitterValue;
+
+  });
+
+  Meteor.publish('twitterWordcloud', function(twitterId) {
+
+    let twitterWordcloud = TwitterWordclouds.find({
+      twitterId: twitterId,
+      userId: this.userId
+    });
+
+    return twitterWordcloud;
+
+  });
+
 
 });

@@ -51,6 +51,14 @@ FlowRouter.route('/instantProfiler/result/:instantProfileId', {
 
 });
 
+FlowRouter.route('/instantProfiler/limited', {
+  action() {
+    BlazeLayout.render('layout2', {
+      main: 'instantProfilerLimited',
+    });
+  },
+});
+
 /*
  * Signup & Login
  */
@@ -184,32 +192,119 @@ FlowRouter.route('/website/:websiteId/brandcloud', {
 });
 
 
+/*
+ * Twitter
+ */
 FlowRouter.route('/twitter/:twitterId/character', {
   triggersEnter: [requireLogin],
+
+  subscriptions(params) {
+    this.register('twitterCharacter', Meteor.subscribe('twitterCharacter', params.twitterId));
+  },
+
   action(params) {
-   // FlowRouter.subsReady('websiteWordcloud', function() {
+    FlowRouter.subsReady('twitterCharacter', function() {
       BlazeLayout.render('layout', {
         main: 'twitterCharacter'
       });
-   //// })
-  }
+    })
+  },
+
 });
+
 FlowRouter.route('/twitter/:twitterId/values', {
   triggersEnter: [requireLogin],
+
+  subscriptions(params) {
+    this.register('twitterValues', Meteor.subscribe('twitterValues', params.twitterId));
+  },
+
   action(params) {
-    BlazeLayout.render('layout', {
-      main: 'twitterValues'
+    FlowRouter.subsReady('twitterValues', function() {
+      BlazeLayout.render('layout', {
+        main: 'twitterValues'
+      });
     });
   }
 });
+
 FlowRouter.route('/twitter/:twitterId/brandcloud', {
   triggersEnter: [requireLogin],
+
+  subscriptions(params) {
+    this.register('twitterWordcloud', Meteor.subscribe('twitterWordcloud', params.twitterId));
+  },
   action(params) {
-    BlazeLayout.render('layout', {
-      main: 'twitterBrandcloud'
+    FlowRouter.subsReady('twitterWordcloud', function() {
+      BlazeLayout.render('layout', {
+        main: 'twitterBrandcloud'
+      });
     });
   },
 });
+
+/*
+ * Harmony
+ */
+FlowRouter.route('/harmony/:websiteId/:twitterId/character', {
+  triggersEnter: [requireLogin],
+
+  subscriptions(params) {
+    this.register('websiteCharacter', Meteor.subscribe('websiteCharacter', params.websiteId));
+    this.register('twitterCharacter', Meteor.subscribe('twitterCharacter', params.twitterId));
+  },
+
+  action(params) {
+    FlowRouter.subsReady('websiteCharacter', function() {
+      FlowRouter.subsReady('twitterCharacter', function() {
+        BlazeLayout.render('layout', {
+          main: 'harmonyCharacter'
+        });
+      })
+    });
+  },
+
+});
+
+FlowRouter.route('/harmony/:websiteId/:twitterId/values', {
+  triggersEnter: [requireLogin],
+
+  subscriptions(params) {
+    //FIXME make website & twitter more consistent
+    this.register('websiteValue', Meteor.subscribe('websiteValue', params.websiteId));
+    this.register('twitterValues', Meteor.subscribe('twitterValues', params.twitterId));
+  },
+
+  action(params) {
+    FlowRouter.subsReady('websiteValue', function() {
+      FlowRouter.subsReady('twitterValues', function() {
+        BlazeLayout.render('layout', {
+          main: 'harmonyValues'
+        });
+      });
+    });
+  }
+});
+
+FlowRouter.route('/harmony/:websiteId/:twitterId/brandcloud', {
+  triggersEnter: [requireLogin],
+
+  subscriptions(params) {
+    this.register('websiteWordcloud', Meteor.subscribe('websiteWordcloud', params.websiteId));
+    this.register('twitterWordcloud', Meteor.subscribe('twitterWordcloud', params.twitterId));
+  },
+  action(params) {
+    FlowRouter.subsReady('websiteWordcloud', function() {
+      FlowRouter.subsReady('twitterWordcloud', function() {
+        BlazeLayout.render('layout', {
+          main: 'harmonyBrandcloud'
+        });
+      });
+    });
+  },
+});
+
+
 
 
 /*
@@ -270,3 +365,4 @@ FlowRouter.route('/admin/instantProfiles', {
   }
 
 });
+

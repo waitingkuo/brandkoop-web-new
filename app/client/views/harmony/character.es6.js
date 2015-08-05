@@ -1,22 +1,28 @@
 Meteor.startup(function() {
 
-  Template.websiteCharacter.onRendered(function() {
+  Template.harmonyCharacter.onRendered(function() {
 
     let websiteId = FlowRouter.getParam('websiteId');
-    let character = WebsiteCharacters.findOne({websiteId: websiteId});
-    if (!!character) {
-
+    let websiteCharacter = WebsiteCharacters.findOne({websiteId: websiteId});
+    if (!!websiteCharacter) {
       setTimeout(function() { // to make this page render faster
-        Charts.makeCharacterChart('character', character);
+        Charts.makeCharacterChart('website-character', websiteCharacter);
       }, 300);
+    }
 
+    let twitterId = FlowRouter.getParam('twitterId');
+    let twitterCharacter = TwitterCharacters.findOne({twitterId: twitterId});
+    if (!!twitterCharacter) {
+      setTimeout(function() { // to make this page render faster
+        Charts.makeCharacterChart('twitter-character', twitterCharacter);
+      }, 300);
     }
 
     Popup.popupIfFirstVisit()
 
   });
 
-  Template.websiteCharacter.helpers({
+  Template.harmonyCharacter.helpers({
 
     popupData: {
       title: 'Website Character',
