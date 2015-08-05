@@ -6,6 +6,10 @@ Meteor.startup(function() {
       return Meteor.users.find();
     },
 
+    numOfUser() {
+      return Meteor.users.find().count();
+    },
+
     createdBy() {
       if (!!this.createdBy) {
         return this.createdBy.email;
