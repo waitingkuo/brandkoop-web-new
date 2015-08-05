@@ -79,20 +79,26 @@ Meteor.startup(function() {
       
       let isFirst = true;
       let values = ''
+      let cap = function(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+      }
       for (let value of topValues) {
         if (isFirst) {
           // consider space
           if (limit >= value.length + 1) {
-            values += value + ' ';
+            values += cap(value);
             isFirst = false;
             limit -= value.length + 1;
           }
         } else {
           if (limit >= value.length + 2) {
-            values += ',' + value + ' ';
+            values += ', ' + cap(value);
             limit -= value.length + 2;
           }
         }
+      }
+      if (!isFirst) {
+        values += ' ';
       }
 
 
