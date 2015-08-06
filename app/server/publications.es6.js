@@ -1,5 +1,9 @@
 Meteor.startup(function() {
 
+  Meteor.publish('stories', function() {
+    return Stories.find({});
+  });
+
   Meteor.publish('instantProfile', function(profileId) {
 
     let profile = InstantProfiles.find({_id: profileId});

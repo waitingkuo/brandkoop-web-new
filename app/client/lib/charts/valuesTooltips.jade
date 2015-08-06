@@ -1,0 +1,34 @@
+template(name="valuesTooltips")
+  #values-tooltips.values-tooltips
+    .modal.inmodal.in.show(data-backdrop="false")
+      .modal-dialog
+        .modal-content.animated.fadeIn
+          .modal-header
+            h4.modal-title {{value}}: {{score}}
+          .modal-body
+            p 
+              b Dimension: 
+              span {{dimension}}
+            p 
+              b Value:
+              span {{value}}
+            p
+              b Description: 
+            each descriptions
+              p {{this}}
+            p 
+              b Keywords: 
+              span {{keywords}}
+            p
+              b Phrases:
+            each phrases
+              p {{this}}
+            p
+              b Slogans:
+            each slogans
+              p {{this}}
+            h4 
+              span {{title}}
+              a(href="{{url}}", target="_blank") {{url}}
+            img(src="{{image}}")
+

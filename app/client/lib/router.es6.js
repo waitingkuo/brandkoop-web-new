@@ -163,6 +163,7 @@ FlowRouter.route('/website/:websiteId/values', {
 
   subscriptions(params) {
     this.register('websiteValue', Meteor.subscribe('websiteValue', params.websiteId));
+    this.register('stories', Meteor.subscribe('stories'));
   },
 
   action(params) {
@@ -217,6 +218,7 @@ FlowRouter.route('/twitter/:twitterId/values', {
 
   subscriptions(params) {
     this.register('twitterValues', Meteor.subscribe('twitterValues', params.twitterId));
+    this.register('stories', Meteor.subscribe('stories'));
   },
 
   action(params) {
@@ -273,6 +275,7 @@ FlowRouter.route('/harmony/:websiteId/:twitterId/values', {
     //FIXME make website & twitter more consistent
     this.register('websiteValue', Meteor.subscribe('websiteValue', params.websiteId));
     this.register('twitterValues', Meteor.subscribe('twitterValues', params.twitterId));
+    this.register('stories', Meteor.subscribe('stories'));
   },
 
   action(params) {

@@ -1,0 +1,15 @@
+template(name="characterTooltips")
+  .character-tooltips
+    .modal.show.inmodal.in(tabindex="-1", role="dialog", aria-hidden="true")
+      .modal-dialog
+        .modal-content
+          .modal-header 
+            h4.modal-title {{criteria}}: {{score}}
+          .modal-body
+            p {{description}}
+
+          .modal-footer
+            br
+
+
+

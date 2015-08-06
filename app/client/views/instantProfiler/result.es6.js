@@ -124,8 +124,8 @@ Meteor.startup(function() {
     let id = FlowRouter.getParam('instantProfileId');
     let instantProfile = InstantProfiles.findOne(id);
 
-    Charts.makeCharacterChart('character-chart', instantProfile.character);
-    Charts.makeValuesChart('values-chart', instantProfile.values, 'overall');
+    Charts.makeCharacterChart('character-chart', instantProfile.character, 'lite');
+    Charts.makeValuesChart('values-chart', instantProfile.values, 'overall', 'lite');
     $('#character-description').steps({
 
       headerTag: 'h3',

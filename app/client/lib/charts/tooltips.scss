@@ -1,0 +1,6 @@
+.character-tooltips, .values-tooltips {
+  display: none;
+  &.active {
+    display: block;
+  }
+}

@@ -1,6 +1,16 @@
 Charts = window.Charts || {};
 
-Charts.makeValuesChart = function(id, values, criteria) {
+Charts.makeValuesChart = function(id, values, criteria, type) {
+
+  let profilerDescriptions;
+  let balloonText;
+  if (type === 'lite') {
+    profilerDescriptions = LiteProfilerDescriptions;
+    balloonText = "[[category]]: [[description]]";
+  } else {
+    profilerDescriptions = FullProfilerDescriptions;
+    balloonText =  "";
+  }
 
   if (criteria != 'overall') {
     values = _.filter(values, (v) => v.criteria === criteria);
@@ -34,7 +44,7 @@ Charts.makeValuesChart = function(id, values, criteria) {
     }],
     "startDuration": 1,
     "graphs": [{
-      "balloonText": "[[category]]: [[description]]</b>",
+      "balloonText": balloonText,
       "fillColorsField": "color",
       "fillAlphas": 0.9,
       "lineAlpha": 0.2,
@@ -45,6 +55,9 @@ Charts.makeValuesChart = function(id, values, criteria) {
       "categoryBalloonEnabled": false,
       "cursorAlpha": 0,
       "zoomable": false
+    },
+
+    "balloon": {
     },
 
     "categoryField": "value",
@@ -61,5 +74,27 @@ Charts.makeValuesChart = function(id, values, criteria) {
 
   });
 
-}
 
+  chart.addListener('rollOverGraphItem', function(event) {
+    let value = event.item.dataContext.value;
+    let story = Stories.findOne({value: value});
+    //console.log(value);
+    //console.log(story);
+    Session.set('valuesTooltips:dimension', story.dimension);
+    Session.set('valuesTooltips:value', story.value);
+    Session.set('valuesTooltips:score', story.score);
+    Session.set('valuesTooltips:descriptions', story.descriptions);
+    Session.set('valuesTooltips:keywords', story.keywords);
+    Session.set('valuesTooltips:phrases', story.phrases);
+    Session.set('valuesTooltips:slogans', story.slogans);
+    Session.set('valuesTooltips:url', story.url);
+    Session.set('valuesTooltips:image', story.image);
+    Session.set('valuesTooltips:title', story.title);
+    $('.values-tooltips').addClass('active');
+  });
+  chart.addListener('rollOutGraphItem', function(item) {
+    $('.values-tooltips').removeClass('active');
+  });
+
+
+}

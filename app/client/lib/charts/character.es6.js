@@ -1,6 +1,16 @@
 Charts = window.Charts || {};
 
-Charts.makeCharacterChart = function(id, character, ballonType) {
+Charts.makeCharacterChart = function(id, character, type) {
+
+  let profilerDescriptions;
+  let balloonText;
+  if (type === 'lite') {
+    profilerDescriptions = LiteProfilerDescriptions;
+    balloonText = "[[category]]: [[description]]";
+  } else {
+    profilerDescriptions = FullProfilerDescriptions;
+    balloonText =  "";
+  }
 
   var chart = AmCharts.makeChart(id, {
 
@@ -10,23 +20,23 @@ Charts.makeCharacterChart = function(id, character, ballonType) {
 
     "dataProvider": [ {
       "criteria": "Sincerity",
-      "description": LiteProfilerDescriptions.characters.sincerity,
+      "description": profilerDescriptions.characters.sincerity,
       "score": parseInt(character.sincerity),
     }, {
       "criteria": "Excitement",
-      "description": LiteProfilerDescriptions.characters.excitement,
+      "description": profilerDescriptions.characters.excitement,
       "score": parseInt(character.excitement)
     }, {
       "criteria": "Competence",
-      "description": LiteProfilerDescriptions.characters.competence,
+      "description": profilerDescriptions.characters.competence,
       "score": parseInt(character.competence)
     }, {
       "criteria": "Sophistication",
-      "description": LiteProfilerDescriptions.characters.sophistication,
+      "description": profilerDescriptions.characters.sophistication,
       "score": parseInt(character.sophistication)
     }, {
       "criteria": "Ruggedness",
-      "description": LiteProfilerDescriptions.characters.ruggedness,
+      "description": profilerDescriptions.characters.ruggedness,
       "score": parseInt(character.ruggedness)
     } ],
 
@@ -39,16 +49,12 @@ Charts.makeCharacterChart = function(id, character, ballonType) {
     "startDuration": 2,
 
     "graphs": [ {
-      "balloonText": "[[category]]: [[description]]",
+      "balloonText": balloonText,
       "bullet": "round",
-      "valueField": "score"
+      "valueField": "score",
     } ],
 
     "balloon": {
-      "adjustBorderColor": true,
-      "color": "#000000",
-      "cornerRadius": 5,
-      "fillColor": "#FFFFFF"
     },
 
     "categoryField": "criteria",
@@ -60,6 +66,16 @@ Charts.makeCharacterChart = function(id, character, ballonType) {
 
   } );
 
+  chart.addListener('rollOverGraphItem', function(event) {
+    let data = event.item.dataContext;
+    Session.set('characterTooltips:criteria', data.criteria);
+    Session.set('characterTooltips:score', data.score);
+    Session.set('characterTooltips:description', data.description);
+    $('.character-tooltips').addClass('active');
+  });
+  chart.addListener('rollOutGraphItem', function(item) {
+    $('.character-tooltips').removeClass('active');
+  });
 
 };
 
