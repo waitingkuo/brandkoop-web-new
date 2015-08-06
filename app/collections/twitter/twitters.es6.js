@@ -55,7 +55,7 @@ if (Meteor.isServer) {
       twitterId: twitterId,
     });
 
-    //Meteor.call('profileTwitter', twitterId, function() {});
+    Meteor.call('profileTwitter', twitterId, function() {});
     //
     //
 
