@@ -2,7 +2,6 @@ Meteor.startup(function() {
 
   Template.websiteBrandcloud.onRendered(function() {
 
-    /*
     let websiteId = FlowRouter.getParam('websiteId');
     let words = WebsiteWordclouds.findOne({websiteId: websiteId}).words;
     if (!!words) {
@@ -12,7 +11,6 @@ Meteor.startup(function() {
       }, 0);
 
     }
-    */
 
   });
 
