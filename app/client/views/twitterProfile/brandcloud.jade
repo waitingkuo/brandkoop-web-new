@@ -1,13 +1,13 @@
-template(name="websiteBrandcloud")
+template(name="twitterBrandcloud")
 
-  +pageHeading title='Website Brand Cloud' category='Website Profile'
+  +pageHeading title='Social Brand Cloud' category='Twitter Profile'
 
   .wrapper.wrapper-content.animated.fadeInRight
     .row
       .col-lg-12
         .ibox.float-e-margins
           .ibox-title
-            h5 Website Brand Cloud
+            h5 Social Brand Cloud
           .ibox-content(style="background-color: rgba(0, 0, 255, 0.07);")
             #brandcloud
             .pull-right
@@ -16,6 +16,7 @@ template(name="websiteBrandcloud")
             br
             br
 
-
   +Template.dynamic template="popupWindow" data=popupData
   +Template.dynamic template="infoWindow" data=infoData
+
+

@@ -12,6 +12,7 @@ template(name="twitterCharacter")
             .row
               .col-lg-7
                 .character-chart#character
+                +infoButton
 
               .col-lg-5
                 h3 The Concentrated Brand
@@ -26,3 +27,6 @@ template(name="twitterCharacter")
                 p Counting on three dimensions, more established brands use specifically designed marketing campaigns to help associate the brand with values and dimensions not typically directly associated with the core values of the brand in its early days. These more mature brands grow and modify their brand image in such ways to adapt their image to the evolving marketplace as well as to energize and expand their target audience.
                 br 
 
+  +characterTooltips
+  +Template.dynamic template="popupWindow" data=popupData
+  +Template.dynamic template="infoWindow" data=infoData

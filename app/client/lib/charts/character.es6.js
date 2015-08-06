@@ -76,6 +76,7 @@ Charts.makeCharacterChart = function(id, character, type) {
       //console.log('over');
     });
     chart.addListener('rollOutGraphItem', function(item) {
+      $('.character-tooltips').removeClass('active');
       //console.log('out');
     });
   }

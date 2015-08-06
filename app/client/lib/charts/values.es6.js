@@ -101,7 +101,7 @@ Charts.makeValuesChart = function(id, values, criteria, type) {
         $('.values-tooltips').removeClass('active');
         //console.log('out');
       });
-    }, 1000);
+    }, 3000);
   }
 
 

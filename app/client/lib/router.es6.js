@@ -298,11 +298,11 @@ FlowRouter.route('/harmony/:websiteId/:twitterId/brandcloud', {
   },
   action(params) {
     //FlowRouter.subsReady('websiteWordcloud', function() {
-      FlowRouter.subsReady('twitterWordcloud', function() {
+      //FlowRouter.subsReady('twitterWordcloud', function() {
         BlazeLayout.render('layout', {
           main: 'harmonyBrandcloud'
         });
-      });
+      //});
     //});
   },
 });

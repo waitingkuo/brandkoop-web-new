@@ -10,6 +10,12 @@ template(name="websiteValues")
             h5 Overall
           .ibox-content
             #overall.values-chart
+            .pull-right
+              +infoButton
+            br
+            br
+            br
+
 
     .row
       .col-lg-12
@@ -53,3 +59,5 @@ template(name="websiteValues")
 
 
   +valuesTooltips
+  +Template.dynamic template="popupWindow" data=popupData
+  +Template.dynamic template="infoWindow" data=infoData

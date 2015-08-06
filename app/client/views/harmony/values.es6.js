@@ -15,4 +15,14 @@ Meteor.startup(function() {
 
   });
 
+  Template.harmonyValues.helpers({
+    infoData: {
+      title: 'Values Harmony',
+      descriptions: [
+        "These side by side charts show the Value profiles of your website an    d social accounts. Use them to check what Values you \
+        are expressing in each area."
+      ],
+    },
+  });
+
 });

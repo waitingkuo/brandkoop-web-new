@@ -7,11 +7,18 @@ template(name="harmonyBrandcloud")
       .col-lg-12
         .ibox.float-e-margins
           .ibox-title
-            h5 Harmony Brand Cloud
-          .ibox-content
+            h5 Cloud Harmony: Website vs Social
+          .ibox-content(style="background-color: rgba(0, 0, 255, 0.07);")
             .row
               .col-lg-6
                 #website-brandcloud
               .col-lg-6
                 #twitter-brandcloud
+                .pull-right
+                  +infoButton
+                br
+                br
+                br
 
+
+  +Template.dynamic template="infoWindow" data=infoData

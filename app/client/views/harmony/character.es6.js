@@ -24,28 +24,13 @@ Meteor.startup(function() {
 
   Template.harmonyCharacter.helpers({
 
-    popupData: {
-      title: 'Website Character',
-      descriptions: [
-        "This chart shows your website's overall character. See what type of brand you are. Hover over the chart for your score and explanation of the 5 brand characters.",
-        "",
-        "Click the Information icon (i) for more details.",
-      ]
-    },
-
     infoData: {
-      imageUrl: '/images/info/character.png',
-      imageWidth: '300',
-      title: 'Website Character',
+      title: 'Character Harmony',
       descriptions: [
-        "This score represents the number of times a \
-Competence Value was detected in the content of \
-your website. Competence values include Reliable, \
-Hardworking, and Confident to name a few. The \
-number of Values detected add up to an overall \
-Character score."
-      ],
-    }
+        "These side by side charts show the Character profiles of your website and social accounts. It's a way to check if what you say \
+        in social media really represents what your brand stands for. "
+      ],   
+    },
 
   });
 

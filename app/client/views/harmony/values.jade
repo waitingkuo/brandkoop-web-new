@@ -14,4 +14,11 @@ template(name="harmonyValues")
                 #website-overall.values-chart
               .col-lg-6
                 #twitter-overall.values-chart
+                .pull-right
+                  +infoButton
+                br
+                br
+                br
 
+  +valuesTooltips
+  +Template.dynamic template="infoWindow" data=infoData

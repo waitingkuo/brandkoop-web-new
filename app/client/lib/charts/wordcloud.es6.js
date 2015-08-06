@@ -39,7 +39,7 @@ Charts.makeWordcloud = function(id, width, height, allWords) {
   });
 
   let layout = d3.layout.cloud()
-      .size([500, 500])
+      .size([width, height])
       .words(words)
       //.words([
       //  "Hello", "world", "normally", "you", "want", "more", "words",

@@ -1,9 +1,9 @@
 Meteor.startup(function() {
 
-  Template.websiteBrandcloud.onRendered(function() {
+  Template.twitterBrandcloud.onRendered(function() {
 
-    let websiteId = FlowRouter.getParam('websiteId');
-    let words = WebsiteWordclouds.findOne({websiteId: websiteId}).words;
+    let twitterId = FlowRouter.getParam('twitterId');
+    let words = TwitterWordclouds.findOne({twitterId: twitterId}).words;
     if (!!words) {
 
       setTimeout(function() { // to make this page render faster
@@ -17,9 +17,9 @@ Meteor.startup(function() {
 
   });
 
-  Template.websiteBrandcloud.helpers({
+  Template.twitterBrandcloud.helpers({
     popupData: {
-      title: 'Website Cloud',
+      title: 'Social Cloud',
       descriptions: [
         "These are the most relevant key terms that make up the personality of your brand from the content analyzed on your website.",
         "",
@@ -28,7 +28,7 @@ Meteor.startup(function() {
     }, 
 
     infoData: {
-      title: 'Website Cloud',
+      title: 'Social Cloud',
       descriptions: [
         "The color of each word represents whatoverall Character it belongs to.",
           "Red=Excitement",
@@ -42,8 +42,8 @@ Meteor.startup(function() {
       ] ,
     },
 
-
   });
 
 });
+
 

@@ -14,6 +14,12 @@ template(name="harmonyCharacter")
                 .character-chart#website-character
               .col-lg-6
                 .character-chart#twitter-character
+                .pull-right
+                  +infoButton
+                br
+                br
+                br
 
-  //+Template.dynamic template="popupWindow" data=popupData
-  //+Template.dynamic template="infoWindow" data=infoData
+
+  +characterTooltips
+  +Template.dynamic template="infoWindow" data=infoData
