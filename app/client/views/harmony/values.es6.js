@@ -3,15 +3,17 @@ Meteor.startup(function() {
   Template.harmonyValues.onRendered(function() {
 
     let websiteId = FlowRouter.getParam('websiteId');
-    let websiteValues = WebsiteValues.findOne({websiteId: websiteId}).traits;
+    let website = WebsiteValues.findOne({websiteId: websiteId});
 
     let twitterId = FlowRouter.getParam('twitterId');
-    let twitterValues = TwitterValues.findOne({twitterId: twitterId}).traits;
+    let twitter = TwitterValues.findOne({twitterId: twitterId});
 
-    setTimeout(function() { // to make this page render faster
-      Charts.makeValuesChart('website-overall', websiteValues, 'overall');
-      Charts.makeValuesChart('twitter-overall', twitterValues, 'overall');
-    }, 300);
+    if (!!website && !!twitter) {
+      setTimeout(function() { // to make this page render faster
+        Charts.makeValuesChart('website-overall', website.traits, 'overall');
+        Charts.makeValuesChart('twitter-overall', twitter.traits, 'overall');
+      }, 300);
+    }
 
   });
 
