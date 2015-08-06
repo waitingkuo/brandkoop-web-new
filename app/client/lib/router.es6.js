@@ -322,6 +322,30 @@ FlowRouter.route('/twitterNotSet', {
 });
 
 /*
+ * Blueprint
+ */
+FlowRouter.route('/blueprint', {
+  triggersEnter: [requireLogin],
+  action(params) {
+    BlazeLayout.render('layout', {
+      main: 'blueprint',
+    });
+  },
+});
+
+/*
+ * Advocates
+ */
+FlowRouter.route('/advocates', {
+  triggersEnter: [requireLogin],
+  action(params) {
+    BlazeLayout.render('layout', {
+      main: 'advocates',
+    });
+  },
+});
+
+/*
  * Settings
  */
 FlowRouter.route('/settings', {
