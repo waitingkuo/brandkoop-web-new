@@ -75,26 +75,34 @@ Charts.makeValuesChart = function(id, values, criteria, type) {
   });
 
 
-  chart.addListener('rollOverGraphItem', function(event) {
-    let value = event.item.dataContext.value;
-    let story = Stories.findOne({value: value});
-    //console.log(value);
-    //console.log(story);
-    Session.set('valuesTooltips:dimension', story.dimension);
-    Session.set('valuesTooltips:value', story.value);
-    Session.set('valuesTooltips:score', story.score);
-    Session.set('valuesTooltips:descriptions', story.descriptions);
-    Session.set('valuesTooltips:keywords', story.keywords);
-    Session.set('valuesTooltips:phrases', story.phrases);
-    Session.set('valuesTooltips:slogans', story.slogans);
-    Session.set('valuesTooltips:url', story.url);
-    Session.set('valuesTooltips:image', story.image);
-    Session.set('valuesTooltips:title', story.title);
-    $('.values-tooltips').addClass('active');
-  });
-  chart.addListener('rollOutGraphItem', function(item) {
-    $('.values-tooltips').removeClass('active');
-  });
+  if (type !== 'lite') {
+    //FIXME hack, sometimes popup won't disappear 
+    // maybe it's because we rollOverGraphItem before the whole thing rendered correctly
+    setTimeout(function() {
+      chart.addListener('rollOverGraphItem', function(event) {
+        let value = event.item.dataContext.value;
+        let story = Stories.findOne({value: value});
+        //console.log(value);
+        //console.log(story);
+        Session.set('valuesTooltips:dimension', story.dimension);
+        Session.set('valuesTooltips:value', story.value);
+        Session.set('valuesTooltips:score', story.score);
+        Session.set('valuesTooltips:descriptions', story.descriptions);
+        Session.set('valuesTooltips:keywords', story.keywords);
+        Session.set('valuesTooltips:phrases', story.phrases);
+        Session.set('valuesTooltips:slogans', story.slogans);
+        Session.set('valuesTooltips:url', story.url);
+        Session.set('valuesTooltips:image', story.image);
+        Session.set('valuesTooltips:title', story.title);
+        $('.values-tooltips').addClass('active');
+        //console.log('over');
+      });
+      chart.addListener('rollOutGraphItem', function(item) {
+        $('.values-tooltips').removeClass('active');
+        //console.log('out');
+      });
+    }, 1000);
+  }
 
 
 }

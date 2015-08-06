@@ -66,16 +66,19 @@ Charts.makeCharacterChart = function(id, character, type) {
 
   } );
 
-  chart.addListener('rollOverGraphItem', function(event) {
-    let data = event.item.dataContext;
-    Session.set('characterTooltips:criteria', data.criteria);
-    Session.set('characterTooltips:score', data.score);
-    Session.set('characterTooltips:description', data.description);
-    $('.character-tooltips').addClass('active');
-  });
-  chart.addListener('rollOutGraphItem', function(item) {
-    $('.character-tooltips').removeClass('active');
-  });
+  if (type !== 'lite') {
+    chart.addListener('rollOverGraphItem', function(event) {
+      let data = event.item.dataContext;
+      Session.set('characterTooltips:criteria', data.criteria);
+      Session.set('characterTooltips:score', data.score);
+      Session.set('characterTooltips:description', data.description);
+      $('.character-tooltips').addClass('active');
+      //console.log('over');
+    });
+    chart.addListener('rollOutGraphItem', function(item) {
+      //console.log('out');
+    });
+  }
 
 };
 
