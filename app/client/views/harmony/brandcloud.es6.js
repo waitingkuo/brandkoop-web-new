@@ -1,6 +1,6 @@
 Meteor.startup(function() {
 
-  Template.websiteBrandcloud.onRendered(function() {
+  Template.harmonyBrandcloud.onRendered(function() {
 
     /*
     let websiteId = FlowRouter.getParam('websiteId');
