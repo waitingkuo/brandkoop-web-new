@@ -9,6 +9,11 @@ Meteor.startup(function() {
        }
     };
 
+    // only 
+    if (document.referrer.split('/').slice(0,3).join('/')+'/' !== Meteor.absoluteUrl() && document.referrer != '') {
+      $('.referer-only').show();
+    }
+
   });
   // remove popup event
   Template.instantProfilerResultProfiled.onDestroyed(function() {

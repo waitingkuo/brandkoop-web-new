@@ -1,5 +1,6 @@
 template(name="instantProfilerResult")
   +signupPopup
+
   .wrapper.wrapper-content.animated.fadeInRight
     if profile.profiled
       +instantProfilerResultProfiled
@@ -9,10 +10,19 @@ template(name="instantProfilerResult")
 
 template(name="instantProfilerResultProfiled")
   .row
-    .col-md-12
+    .col-md-4.col-md-offset-4
       .text-center
-        h1 Brand Personality Insights of
+        h2 Brand Personality Insights of
         h3 {{profile.domain}}
+    .col-md-4.referer-only(style="display: none")
+      h4 Instantly Profile Your Brand's Personality
+      +autoForm collection="InstantProfiles" id="insertInstantProfileForm" type="normal"
+        .input-group
+          //input#instant-profiler-url.form-control(type="text", style="height: 60px;", placeholder="Website URL")
+          +afFieldInput name="domain" style="height: 60px;" placeholder="Website URL"
+          span.input-group-btn
+            button.btn.btn-primary(type="submit", style="height: 60px; width: 100px;") Profile
+        .help-block(style="color: red;") {{afFieldMessage name='domain'}}
 
   br
   br
@@ -29,7 +39,7 @@ template(name="instantProfilerResultProfiled")
           .row
             .col-md-6
               #character-chart.character-chart
-              p *Hover over the chart for more details"
+              p *Hover over the chart for more details
               p *Scores in chart indicate frequency of "Brand Character" terms 
             .col-md-6
               #character-description
