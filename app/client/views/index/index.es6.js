@@ -1,5 +1,8 @@
 Meteor.startup(function() {
 
+  Template.index.onDestroyed(function() {
+    $('#twitter-wjs').remove();
+  });
   Template.index.helpers({
 
     slack: {
