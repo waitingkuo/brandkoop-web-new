@@ -68,6 +68,11 @@ AutoForm.hooks({
   insertInstantProfileForm: {
     onSubmit(insertDoc) {
 
+      let domain = insertDoc.domain;
+      if (domain.indexOf('//') > -1) {
+        insertDoc.domain = domain.split('//')[1];
+      }
+
       this.event.preventDefault();
 
       let uuid = $.cookie('instanProfilerBrowerUUID')
