@@ -1,3 +1,6 @@
+/*
+ * tracking
+ */
 FlowRouter.triggers.enter([function(context){
     if (context.route && context.route.name) {
       analytics.page(context.route.name);
@@ -6,6 +9,7 @@ console.log(context.route.name);
       analytics.page(context.path);
     }
   }]);
+
 /*
  * Middlewares
  */
@@ -30,7 +34,7 @@ FlowRouter.subscriptions = function() {
  * Landing Page
  */
 FlowRouter.route('/', {
-  name: 'landingPage',
+  name: 'index',
   action(params) {
     if (Meteor.userId()) {
       FlowRouter.go('/home');
