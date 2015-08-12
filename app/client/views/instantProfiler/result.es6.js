@@ -92,12 +92,12 @@ Meteor.startup(function() {
 
   Template.instantProfilerResultProfiled.onRendered(function() {
     //let accessToken = 'db9e55b523ef99f79aa3ec62daefecc4ec448c8b';
-    let accessToken = 'f357ad2dd1f728b8722d4fe74eba54cd435f7af';
+    let accessToken = 'f357ad2dd1f728b8722d4fe74eba54cd435f7af8';
     //let longUrl = 'http%3A%2F%2Fbeta.brandkoop.com%2FinstantProfiler%2Fresult%2F' + params.instantProfileId;
     //let longUrl = window.location.href
     //window.location.href.replace('localhost:3000','dev.brandkoop.com')
     let longUrl = Meteor.absoluteUrl(FlowRouter.current().path.slice(1));
-    //longUrl = longUrl.replace('localhost:3000','dev.brandkoop.com') // cannot use localhost for bitly
+    longUrl = longUrl.replace('localhost:3000','dev.brandkoop.com') // cannot use localhost for bitly
     longUrl = encodeURIComponent(longUrl);
     
     let url = 'https://api-ssl.bitly.com/v3/shorten?access_token='+accessToken+'&longUrl='+longUrl+'&domain=bit.ly&format=json';
