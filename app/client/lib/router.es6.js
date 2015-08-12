@@ -1,3 +1,11 @@
+FlowRouter.triggers.enter([function(context){
+    if (context.route && context.route.name) {
+      analytics.page(context.route.name);
+console.log(context.route.name);
+    } else {
+      analytics.page(context.path);
+    }
+  }]);
 /*
  * Middlewares
  */
@@ -22,6 +30,7 @@ FlowRouter.subscriptions = function() {
  * Landing Page
  */
 FlowRouter.route('/', {
+  name: 'landingPage',
   action(params) {
     if (Meteor.userId()) {
       FlowRouter.go('/home');
@@ -39,6 +48,8 @@ FlowRouter.route('/', {
  */
 FlowRouter.route('/instantProfiler/result/:instantProfileId', {
 
+  name: 'instantProfilerResult',
+
   subscriptions(params) {
     this.register('instantProfile', Meteor.subscribe('instantProfile', params.instantProfileId));
   },
@@ -52,6 +63,7 @@ FlowRouter.route('/instantProfiler/result/:instantProfileId', {
 });
 
 FlowRouter.route('/instantProfiler/limited', {
+  name: 'instantProfilerLimited',
   action() {
     BlazeLayout.render('layout2', {
       main: 'instantProfilerLimited',
@@ -63,6 +75,7 @@ FlowRouter.route('/instantProfiler/limited', {
  * Signup & Login
  */
 FlowRouter.route('/signup', {
+  name: 'signup',
   action() {
    BlazeLayout.render('layout2', {
     main: 'signup'
@@ -70,7 +83,7 @@ FlowRouter.route('/signup', {
   }
 });
 FlowRouter.route('/login', {
-
+  name: 'login',
   action() {
     if (Meteor.userId()) {
       FlowRouter.go('/home');
@@ -86,7 +99,7 @@ FlowRouter.route('/login', {
  * Welcome
  */
 FlowRouter.route('/welcome', {
-
+  name: 'welcome',
   triggersEnter: [requireLogin],
   action(params) {
 
@@ -97,7 +110,7 @@ FlowRouter.route('/welcome', {
   }
 });
 FlowRouter.route('/website/:websiteId/welcome2', {
-
+  name: 'welcome2',
   triggersEnter: [requireLogin],
   subscriptions(params) {
     this.register('currentWebsite', Meteor.subscribe('website', params.websiteId));
@@ -115,7 +128,7 @@ FlowRouter.route('/website/:websiteId/welcome2', {
  * Home
  */
 FlowRouter.route('/home', {
-
+  name: 'home',
   triggersEnter: [requireLogin],
   action() {
     FlowRouter.subsReady('userWebsites', function() {
@@ -141,6 +154,7 @@ FlowRouter.route('/home', {
  * Website
  */
 FlowRouter.route('/website/:websiteId/character', {
+  name: 'websiteCharacter',
   triggersEnter: [requireLogin],
 
   subscriptions(params) {
@@ -158,7 +172,7 @@ FlowRouter.route('/website/:websiteId/character', {
 });
 
 FlowRouter.route('/website/:websiteId/values', {
-
+  name: 'websiteValues',
   triggersEnter: [requireLogin],
 
   subscriptions(params) {
@@ -177,6 +191,7 @@ FlowRouter.route('/website/:websiteId/values', {
 });
 
 FlowRouter.route('/website/:websiteId/brandcloud', {
+  name: 'websiteBrandcloud',
   triggersEnter: [requireLogin],
 
   subscriptions(params) {
@@ -197,6 +212,7 @@ FlowRouter.route('/website/:websiteId/brandcloud', {
  * Twitter
  */
 FlowRouter.route('/twitter/:twitterId/character', {
+  name: 'twitterCharacter',
   triggersEnter: [requireLogin],
 
   subscriptions(params) {
@@ -214,6 +230,7 @@ FlowRouter.route('/twitter/:twitterId/character', {
 });
 
 FlowRouter.route('/twitter/:twitterId/values', {
+  name: 'twitterValues',
   triggersEnter: [requireLogin],
 
   subscriptions(params) {
@@ -231,6 +248,7 @@ FlowRouter.route('/twitter/:twitterId/values', {
 });
 
 FlowRouter.route('/twitter/:twitterId/brandcloud', {
+  name: 'twitterBrandcloud',
   triggersEnter: [requireLogin],
 
   subscriptions(params) {
@@ -249,6 +267,7 @@ FlowRouter.route('/twitter/:twitterId/brandcloud', {
  * Harmony
  */
 FlowRouter.route('/harmony/:websiteId/:twitterId/character', {
+  name: 'harmonyCharacter',
   triggersEnter: [requireLogin],
 
   subscriptions(params) {
@@ -269,6 +288,7 @@ FlowRouter.route('/harmony/:websiteId/:twitterId/character', {
 });
 
 FlowRouter.route('/harmony/:websiteId/:twitterId/values', {
+  name: 'harmonyValues',
   triggersEnter: [requireLogin],
 
   subscriptions(params) {
@@ -290,6 +310,7 @@ FlowRouter.route('/harmony/:websiteId/:twitterId/values', {
 });
 
 FlowRouter.route('/harmony/:websiteId/:twitterId/brandcloud', {
+  name: 'harmonyBrandcloud',
   triggersEnter: [requireLogin],
 
   subscriptions(params) {
@@ -314,6 +335,7 @@ FlowRouter.route('/harmony/:websiteId/:twitterId/brandcloud', {
  * Twitter not set
  */
 FlowRouter.route('/twitterNotSet', {
+  name: 'twitterNotSet',
   triggetsEnter: [requireLogin],
   action(params, queryParams) {
     let title = queryParams.title;
@@ -328,6 +350,7 @@ FlowRouter.route('/twitterNotSet', {
  * Blueprint
  */
 FlowRouter.route('/blueprint', {
+  name: 'blueprint',
   triggersEnter: [requireLogin],
   action(params) {
     BlazeLayout.render('layout', {
@@ -340,6 +363,7 @@ FlowRouter.route('/blueprint', {
  * Advocates
  */
 FlowRouter.route('/advocates', {
+  name: 'advocates',
   triggersEnter: [requireLogin],
   action(params) {
     BlazeLayout.render('layout', {
@@ -352,6 +376,7 @@ FlowRouter.route('/advocates', {
  * Settings
  */
 FlowRouter.route('/settings', {
+  name: 'settings',
   triggersEnter: [requireLogin],
   action(params) {
     BlazeLayout.render('layout', {
@@ -364,6 +389,7 @@ FlowRouter.route('/settings', {
  * Admin
  */
 FlowRouter.route('/admin/userList', {
+  name: 'adminUserList',
   triggersEnter: [requireLogin],
 
   subscriptions() {
@@ -379,6 +405,7 @@ FlowRouter.route('/admin/userList', {
 });
 
 FlowRouter.route('/admin/instantProfiles', {
+  name: 'adminInstantProfiles',
   triggersEnter: [requireLogin],
 
   subscriptions() {

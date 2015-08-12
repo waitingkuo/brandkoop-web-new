@@ -65,6 +65,7 @@ numeral:numeral@1.5.3
 oauth@1.1.4
 oauth1@1.1.4
 observe-sequence@1.0.6
+okgrow:analytics@0.3.0
 ordered-dict@1.0.3
 random@1.0.3
 reactive-dict@1.1.0
