@@ -4,7 +4,6 @@
 FlowRouter.triggers.enter([function(context){
     if (context.route && context.route.name) {
       analytics.page(context.route.name);
-console.log(context.route.name);
     } else {
       analytics.page(context.path);
     }

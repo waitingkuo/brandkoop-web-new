@@ -1,6 +1,5 @@
 template(name="instantProfilerResult")
   +signupPopup
-
   .wrapper.wrapper-content.animated.fadeInRight
     if profile.profiled
       +instantProfilerResultProfiled
@@ -138,7 +137,8 @@ template(name="instantProfilerResultProfiled")
       //p {{tweetText}}
       h2 
         b Tweet Your Profile
-      +instantProfilerResultTweet text=tweetText
+      #instantProfilerResultTweet
+        //+instantProfilerResultTweet text=tweetText
       //#tweet
       //+shareit
       br
