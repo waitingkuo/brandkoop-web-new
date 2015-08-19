@@ -1,0 +1,32 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workerCount": {
+            "type": "int",
+            "defaultValue": 4
+        }
+    },
+    "variables": {
+    },
+    "resources": [
+        {
+            "name": "[concat('worker-', copyIndex())]",
+            "type": "Microsoft.Compute/virtualMachines",
+            "location": "West US",
+            "copy": {
+                "name": "testcopy",
+                "count": "[parameters('workerCount')]"
+            }   
+            ]
+            "dependsOn": [
+                    
+            ],
+            "properties": {
+                "hardwareProfile": {
+                    "vmSize": "Standard_D1"
+                }
+            }
+        }    
+    ]
+}

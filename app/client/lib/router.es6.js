@@ -1,4 +1,11 @@
 /*
+ * Scroll to top
+ */
+FlowRouter.triggers.enter([function() {
+  window.scrollTo(0, 0);
+}]);
+
+/*
  * tracking
  */
 FlowRouter.triggers.enter([function(context){

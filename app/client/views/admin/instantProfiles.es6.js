@@ -2,6 +2,10 @@ Meteor.startup(function() {
 
   Template.adminInstantProfiles.helpers({
 
+    numberOfProfilers() {
+      return InstantProfiles.find({}).count();
+    },
+
     profiles() {
       return InstantProfiles.find({});
     },

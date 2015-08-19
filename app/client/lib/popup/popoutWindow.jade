@@ -7,15 +7,25 @@ template(name="signupPopup")
             span(aria-hidden="true") &times;
             span.sr-only Close
           //i.fa.fa-laptop.modal-icon
-          h4.modal-title WANT MORE ANSWERS?
+          h4.modal-title ALSO ANALYZE YOUR TWITTER FEED
           //small.font-bold {{smallTitle}}
         .modal-body
           .text-center
+            img(src="/images/twitter-and-brandkoop.png", style="width: 100%;")
+            br
+            br
             h3 Signup by email to get:
             br
+            p Just signup for the Full Profiler (still free)
+            br
+            button.btn.btn-primary#signupBtn Sign Up Now
+            br
+            br
+            br
+            br
+            h3 Also you get these features, too:
             p * your brand profile saved (free)
             p * more data to check out (free)
-            p * analyze your Twitter feed (free)
             br
             br
             p Plus:
@@ -27,7 +37,6 @@ template(name="signupPopup")
             br
             br
             br
-            button.btn.btn-primary#signupBtn Sign Up Now
 
         .modal-footer
           .button.btn.btn-white(type="button", data-dismiss="modal") Close
