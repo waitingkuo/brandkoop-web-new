@@ -77,6 +77,7 @@ if (Meteor.isServer) {
       userId: userId,
       twitterId: twitterId,
     });
+    Meteor.users.update({_id: userId}, {$unset: {'services.twitter': 1}})
 
   });
 
