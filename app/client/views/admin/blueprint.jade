@@ -1,0 +1,196 @@
+template(name="adminBlueprint")
+
+  +pageHeading title='Blueprint' category='Admin Dashboard'
+
+  #blueprint
+    .wrapper.wrapper-content.animated.fadeInRight
+      .row
+        .col-lg-12
+          .ibox.float-e-margins
+            //.ibox-title 
+            //  h5 
+            .ibox-content
+              .row
+                .col-lg-8.col-lg-offset-2
+                  .text-center
+                    h1 
+                      b Example.com's BLUEPRINT
+
+                    p Mantra
+                    .form-group
+                      input.form-control(type="text" value="e.g. Just do it.")
+
+              br
+              br
+              br
+              p *Branding Tip
+              p Strive to make your brand a bridge between who your target customers are and who they want to become.
+
+              //form#blueprint-menu(style="padding: 20px;")
+              form#blueprint-menu(style="")
+                +blueprintCoreBeliefs
+                +blueprintCharacter
+                +blueprintCoreValues
+                +blueprintContentPlanner
+
+template(name="blueprintCoreBeliefs")
+  h1 Core beliefs
+  section
+    h3 What does "example.com" stand for?
+    .row
+      .col-lg-8
+        .form-group
+          //label 1.
+          input.form-control(type="text", placeholder="e.g. Everything you can imagine is real.") 
+        .form-group
+          //label 2.
+          input.form-control(type="text", placeholder="e.g. My body is my template.") 
+        .form-group
+          //label 3.
+          input.form-control(type="text", placeholder="e.g. Family is the most important thing in life") 
+        button.btn.btn-primary Add
+      .col-lg-4
+
+    br
+    br
+    h3 Idea Pad
+    .row
+      .col-lg-8
+        .form-group
+          textarea.form-control(rows="5", placeholder="Record core belief related thoughts here.")
+
+    //button.btn.btn-primary Save
+
+
+
+template(name="blueprintCharacter")
+  h1 Character
+  section
+    .row
+      .col-lg-6
+        h3 Characters
+        #character1.dd
+          ol.dd-list
+            li.dd-item
+              div.dd-handle(style="background-color: #aec6cf;") Sincerity
+            li.dd-item
+              div.dd-handle(style="background-color: #ff6961;") Excitement
+            li.dd-item
+              div.dd-handle(style="background-color: #fdfd96;") Competence
+            li.dd-item
+              div.dd-handle(style="background-color: #b19cd9;") Sophistication
+            li.dd-item
+              div.dd-handle(style="background-color: #836953;") Ruggedness
+      .col-lg-6
+        h3 Drag your top 3 and drop to here
+        #character2.dd
+          ol.dd-list
+            li.dd-item
+    br
+    br
+    h3 Idea Pad
+    .row
+      .col-lg-8
+        .form-group
+          textarea.form-control(rows="5", placeholder="Record core belief related thoughts here.")
+
+
+template(name="blueprintCoreValues")
+  h1 Core Values
+  section
+    .row
+      .col-lg-4
+        .btn-group
+          button.btn.dropdown-toggle(data-toggle="dropdown", style="background-color: #aec6cf;")
+            span Sincerity
+            span.caret
+          ul.dropdown-menu
+            li
+              a Value1
+            li
+              a Value2
+            li
+              a Value3
+      .col-lg-4
+        .btn-group
+          button.btn.dropdown-toggle(data-toggle="dropdown", style="background-color: #ff6961;") 
+            span Excitement
+            span.caret
+          ul.dropdown-menu
+            li
+              a Value1
+            li
+              a Value2
+            li
+              a Value3
+      .col-lg-4
+        .btn-group
+          button.btn.dropdown-toggle(data-toggle="dropdown", style="background-color: #fdfd96;") 
+            span Competence
+            span.caret
+          ul.dropdown-menu
+            li
+              a Value1
+            li
+              a Value2
+            li
+              a Value3
+        
+
+    br
+    br
+    h3 Idea Pad
+    .row
+      .col-lg-8
+        .form-group
+          textarea.form-control(rows="5", placeholder="Record core belief related thoughts here.")
+
+template(name="blueprintContentPlanner")
+  h1 Content Planner
+  section
+    .row
+      .rol-lg-12
+        table.table
+          thead
+            tr
+              th
+              th Dominant Core Value
+              th Topic: Type in the title of your post.
+              th
+          tbody
+            tr
+              td Value2
+              td
+                button.btn.btn-primary Expand
+                button.btn.btn-primary Copy
+              td
+                button.btn.btn-primary Archive
+            tr
+              td Value2
+              td
+                button.btn.btn-primary Expand
+                button.btn.btn-primary Copy
+              td
+                button.btn.btn-primary Archive
+            tr
+              td Value3
+              td
+                button.btn.btn-primary Expand
+                button.btn.btn-primary Copy
+              td
+                button.btn.btn-primary Archive
+            tr
+              td Value4
+              td
+                button.btn.btn-primary Expand
+                button.btn.btn-primary Copy
+              td
+                button.btn.btn-primary Archive
+
+    br
+    br
+    h3 Idea Pad
+    .row
+      .col-lg-8
+        .form-group
+          textarea.form-control(rows="5", placeholder="Record core belief related thoughts here.")

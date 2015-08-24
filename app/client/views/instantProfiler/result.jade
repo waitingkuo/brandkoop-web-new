@@ -1,10 +1,11 @@
 template(name="instantProfilerResult")
-  +signupPopup
-  .wrapper.wrapper-content.animated.fadeInRight
-    if profile.profiled
-      +instantProfilerResultProfiled
-    else
-      +instantProfilerResultProfiling
+  #instantProfilerResult
+    +signupPopup
+    .wrapper.wrapper-content.animated.fadeInRight
+      if profile.profiled
+        +instantProfilerResultProfiled
+      else
+        +instantProfilerResultProfiling
 
 
 template(name="instantProfilerResultProfiled")

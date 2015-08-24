@@ -368,6 +368,15 @@ FlowRouter.route('/blueprint', {
     });
   },
 });
+FlowRouter.route('/admin/blueprint', {
+  name: 'adminBlueprint',
+  triggersEnter: [requireLogin],
+  action(params) {
+    BlazeLayout.render('layout', {
+      main: 'adminBlueprint',
+    });
+  },
+});
 
 /*
  * Advocates
