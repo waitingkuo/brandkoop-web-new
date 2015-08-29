@@ -12,6 +12,12 @@ Charts.makeCharacterChart = function(id, character, type) {
     balloonText =  "";
   }
 
+  let characters = [character.sincerity, character.excitement, character.competence, character.ruggedness, character.sophistication]
+  if (_.max(characters) < 20 ) {
+    Session.set('chart:notEnoughData', true);
+  }
+  //console.log(_.max(characters));
+
   var chart = AmCharts.makeChart(id, {
 
     "type": "radar",

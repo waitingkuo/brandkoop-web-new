@@ -32,7 +32,14 @@ Meteor.methods({
 
     return 'ok';
 
-  }
+  },
 
+  adminImpersonate(userId) {
+    let curUser = Meteor.user();
+    if(Roles.userIsInRole(curUser, ['admin'])) {
+      this.setUserId(userId)
+    }
+    return 'ok';
+  },
 
 });

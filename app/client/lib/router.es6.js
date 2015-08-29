@@ -3,6 +3,7 @@
  */
 FlowRouter.triggers.enter([function() {
   window.scrollTo(0, 0);
+  Session.set('chart:notEnoughData', false);
 }]);
 
 /*

@@ -1,0 +1,8 @@
+template(name="notEnoughDataAlert")
+  if isNotEnoughData
+    br
+    br
+    .alert.alert-warning(role="alert")
+      span.glyphicon.glyphicon-exclamation-sign(aria-hidden="true")
+      span.sr-only Error:
+      span Sorry, it seems we can't extract enough data to make an accurate analysis, or your website is technically challenging to process. For any further inquires: contact@brandkoop.com

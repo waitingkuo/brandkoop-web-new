@@ -12,6 +12,11 @@ Charts.makeValuesChart = function(id, values, criteria, type) {
     balloonText =  "";
   }
 
+  // just take a look at overall
+  if (_.max(_.map(values, (v) => v.frequency)) < 20) {
+    Session.set('chart:notEnoughData', true);
+  }
+
   if (criteria != 'overall') {
     values = _.filter(values, (v) => v.criteria === criteria);
   }

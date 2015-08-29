@@ -62,6 +62,12 @@ Meteor.startup(function() {
       }
     },
 
+    'click .impersonate': function(event) {
+      Meteor.call('adminImpersonate', this._id, function() {
+        FlowRouter.go('/');
+      });
+    },
+
     'submit #admin-create-user-form': function(e) {
 
       e.preventDefault();
