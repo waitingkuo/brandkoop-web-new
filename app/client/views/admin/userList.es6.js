@@ -26,6 +26,18 @@ Meteor.startup(function() {
       });
     },
 
+    hasTwitter() {
+      return !!Twitters.findOne({
+        userId: this._id
+      });
+    },
+
+    twitter() {
+      return Twitters.findOne({
+        userId: this._id
+      });
+    },
+
     character() {
      let character = WebsiteCharacters.findOne({
         userId: this._id
@@ -40,7 +52,23 @@ Meteor.startup(function() {
         return character
       }
 
-    }
+    },
+
+    twitterCharacter() {
+     let character = TwitterCharacters.findOne({
+        userId: this._id
+      })
+      
+      if (!!character) {
+        character.sincerity = parseInt(character.sincerity);
+        character.excitement = parseInt(character.excitement);
+        character.competence = parseInt(character.competence);
+        character.sophistication = parseInt(character.sophistication);
+        character.ruggedness = parseInt(character.ruggedness);
+        return character
+      }
+
+    },
     
   });
 
@@ -66,6 +94,16 @@ Meteor.startup(function() {
       Meteor.call('adminImpersonate', this._id, function() {
         FlowRouter.go('/');
       });
+    },
+
+    'click .add-twitter': function(event) {
+      let twitterScreenName = $(event.currentTarget).prev().val();
+      if (twitterScreenName != '' ) {
+        Twitters.insert({
+          userId: this._id,
+          twitterScreenName: twitterScreenName,
+        })
+      }
     },
 
     'submit #admin-create-user-form': function(e) {

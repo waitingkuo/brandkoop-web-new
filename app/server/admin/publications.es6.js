@@ -15,14 +15,24 @@ Meteor.publish('adminUserList', function() {
       $in: userIds
     }
   });
+  let twitters = Twitters.find({
+    userId: {
+      $in: userIds
+    }
+  });
 
   let websiteCharacters = WebsiteCharacters.find({
     userId: {
       $in: userIds
     }
   });
+  let twitterCharacters = TwitterCharacters.find({
+    userId: {
+      $in: userIds
+    }
+  });
 
-  return [users, websites, websiteCharacters];
+  return [users, websites, websiteCharacters, twitters, twitterCharacters];
 
 });
 

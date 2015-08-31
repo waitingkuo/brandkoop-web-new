@@ -60,6 +60,27 @@ template(name="adminUserList")
                         button.btn.btn-primary.analyze-btn Re-Analyze
                         button.btn.btn-primary.profile-btn Re-Profile
                         button.btn.btn-danger.impersonate Impersonate
+                        if hasTwitter
+                          span
+                        else
+                          br
+                          span Twitter Handle
+                          input.input-twitter(type="text")
+                          button.btn.btn-danger.add-twitter Add-Twitter
+                    if hasTwitter
+                      tr
+                        td
+                        td
+                        td {{twitter.twitterScreenName}}
+                        td {{twitterCharacter.sincerity}}
+                        td {{twitterCharacter.excitement}}
+                        td {{twitterCharacter.competence}}
+                        td {{twitterCharacter.sophistication}}
+                        td {{twitterCharacter.ruggedness}}
+                        td
+                        td
+                        td
+                        
 
     
       .col-lg-12

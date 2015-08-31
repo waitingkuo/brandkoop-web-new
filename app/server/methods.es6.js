@@ -84,6 +84,7 @@ Meteor.startup(function() {
 
     profileTwitter(twitterId) {
       let twitter = Twitters.findOne({_id: twitterId});
+      //console.log(twitter);
       HTTP.post(profilerUrl+'/v3/profiler/profiletwitter', {
         params: {
           twitterId: twitterId,

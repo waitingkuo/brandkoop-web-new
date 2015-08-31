@@ -8,12 +8,13 @@ Twitters.attachSchema(new SimpleSchema({
     //autoValue() {
     //  console.log(this.userId);
     //  return this.userId;
-   // }
+    // }
   },
 
   twitterUserId: {
     type: String,
     label: 'Twitter User Id',
+    optional: true,
   },
 
   twitterScreenName: {
@@ -23,10 +24,12 @@ Twitters.attachSchema(new SimpleSchema({
 
   accessToken: {
     type: String,
+    optional: true,
   },
 
   accessTokenSecret: {
     type: String,
+    optional: true,
   },
 
 

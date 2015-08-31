@@ -6,6 +6,7 @@ FlowRouter.triggers.enter([function() {
   Session.set('chart:notEnoughData', false);
 }]);
 
+
 /*
  * tracking
  */
@@ -408,6 +409,20 @@ FlowRouter.route('/settings', {
 /*
  * Admin
  */
+FlowRouter.route('/admin/twitter/new', {
+  name: 'adminTwitterNew',
+  triggersEnter: [requireLogin],
+
+  subscription() {
+  },
+
+  action() {
+    BlazeLayout.render('layout', {
+      main: 'adminTwitterNew',
+    });
+  },
+});
+
 FlowRouter.route('/admin/userList', {
   name: 'adminUserList',
   triggersEnter: [requireLogin],
