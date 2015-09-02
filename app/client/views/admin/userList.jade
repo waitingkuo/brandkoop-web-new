@@ -77,9 +77,11 @@ template(name="adminUserList")
                         td {{twitterCharacter.competence}}
                         td {{twitterCharacter.sophistication}}
                         td {{twitterCharacter.ruggedness}}
+                        td {{twitter.createdByEmail}}
                         td
                         td
-                        td
+                          with twitter
+                            button.btn.btn-danger.remove-twitter Remove Twitter
                         
 
     

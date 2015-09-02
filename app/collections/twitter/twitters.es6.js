@@ -22,6 +22,17 @@ Twitters.attachSchema(new SimpleSchema({
     label: 'Twitter Account Name',
   },
 
+  createdByUserId: {
+    type: String,
+    label: 'Created By User Id',
+    optional: true,
+  },
+  createdByEmail: {
+    type: String,
+    label: 'Created By Email',
+    optional: true,
+  },
+
   accessToken: {
     type: String,
     optional: true,
@@ -88,10 +99,17 @@ if (Meteor.isServer) {
   Twitters.allow({
 
     insert(userId, doc) {
-      return !!userId;
+      // some times its added by admin..
+      if (Roles.userIsInRole(Meteor.userId(), ['admin'])) {
+        return true
+      }
+      return userId === Meteor.userId();
     },
 
     remove(userId, doc) {
+      if (Roles.userIsInRole(Meteor.userId(), ['admin'])) {
+        return true
+      }
       return userId === doc.userId;
     },
 

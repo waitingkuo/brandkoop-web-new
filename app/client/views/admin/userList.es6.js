@@ -101,9 +101,15 @@ Meteor.startup(function() {
       if (twitterScreenName != '' ) {
         Twitters.insert({
           userId: this._id,
+          createdByEmail: Meteor.user().emails[0].address,
+          createdByUserId: Meteor.userId(),
           twitterScreenName: twitterScreenName,
         })
       }
+    },
+
+    'click .remove-twitter': function(event) {
+      Twitters.remove({_id: this._id});
     },
 
     'submit #admin-create-user-form': function(e) {
