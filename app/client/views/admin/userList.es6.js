@@ -78,8 +78,8 @@ Meteor.startup(function() {
         //for (let id of similarities.similarWebsiteIds) {
         //  websites.push(
         //}
-        return _.map(similarWebsite.similarWebsiteIds, function(e) {
-          Websites.findOne(e).domain
+        return _.map(similarities.similarWebsiteIds, function(e) {
+          Websites.findOne({_id: e}).domain
         });
 
       }
