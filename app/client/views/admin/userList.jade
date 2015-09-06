@@ -67,6 +67,9 @@ template(name="adminUserList")
                           span Twitter Handle
                           input.input-twitter(type="text")
                           button.btn.btn-danger.add-twitter Add-Twitter
+                      td
+                        each similarWebsite
+                          p {{this}}
                     if hasTwitter
                       tr
                         td

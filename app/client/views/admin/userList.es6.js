@@ -70,6 +70,21 @@ Meteor.startup(function() {
 
     },
     
+    similarWebsites() {
+      let websiteId = this._id;
+      let similarities = WebsiteSimilarities.findOne({websiteId: websiteId})
+      if (!!similarities) {
+        //websites = []
+        //for (let id of similarities.similarWebsiteIds) {
+        //  websites.push(
+        //}
+        return _.map(similarWebsite.similarWebsiteIds, function(e) {
+          Websites.findOne(e).domain
+        });
+
+      }
+    },
+
   });
 
   Template.adminUserList.events({

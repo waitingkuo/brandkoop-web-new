@@ -32,7 +32,11 @@ Meteor.publish('adminUserList', function() {
     }
   });
 
-  return [users, websites, websiteCharacters, twitters, twitterCharacters];
+  // FIXME should only provides those contain above websiteId
+  let websiteSimilarities = WebsiteSimilarities.find({
+  });
+
+  return [users, websites, websiteCharacters, twitters, twitterCharacters, websiteSimilarities];
 
 });
 
