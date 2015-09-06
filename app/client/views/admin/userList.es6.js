@@ -71,17 +71,26 @@ Meteor.startup(function() {
     },
     
     similarWebsites() {
-      let websiteId = this._id;
-      let similarities = WebsiteSimilarities.findOne({websiteId: websiteId})
-      if (!!similarities) {
+      let website = Websites.findOne({
+        userId: this._id
+      });
+      console.log(website)
+      if (!!website) {
+      let websiteId = website._id;
+      //console.log(websiteId)
+      let similarity = WebsiteSimilarities.findOne({websiteId: websiteId})
+      if (!!similarity) {
         //websites = []
         //for (let id of similarities.similarWebsiteIds) {
         //  websites.push(
         //}
-        return _.map(similarities.similarWebsiteIds, function(e) {
-          Websites.findOne({_id: e}).domain
+        //console.log(similarities.similarWebsiteIds)
+        //console.log(similarity.similarWebsiteIds)
+        return _.map(similarity.similarWebsiteIds, function(e) {
+          return Websites.findOne({_id: e}).domain
         });
 
+      }
       }
     },
 
