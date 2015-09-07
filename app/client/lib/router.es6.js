@@ -393,6 +393,16 @@ FlowRouter.route('/advocates', {
   },
 });
 
+FlowRouter.route('/admin/advocates', {
+  name: 'adminAdvocates',
+  triggersEnter: [requireLogin],
+  action(params) {
+    BlazeLayout.render('layout', {
+      main: 'adminAdvocates',
+    });
+  },
+});
+
 /*
  * Settings
  */

@@ -61,6 +61,7 @@ momentjs:moment@2.10.3
 mongo@1.1.0
 mquandalle:jade@0.4.3
 mquandalle:jade-compiler@0.4.3
+mrt:datatables@0.1.3
 npm-bcrypt@0.7.8_2
 numeral:numeral@1.5.3
 oauth@1.1.4

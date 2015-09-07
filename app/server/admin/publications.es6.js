@@ -72,3 +72,9 @@ Meteor.publish('adminInstantProfiles', function() {
   return profiles;
   
 });
+
+Meteor.publish('adminTwitters', function() {
+
+  return Twitters.find({}); 
+
+});
