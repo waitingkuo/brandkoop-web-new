@@ -3,9 +3,9 @@ template(name="index")
   br
   .animated.fadeInRight
     .row
-      .col-md-12
+      .col-md-4
         div(style="position: absolute; top: 20px; right: 20px;")
-          +indexTwitterButton
+          //+indexTwitterButton
         .ibox.float-e-margins(style="max-width: 720px; margin: 0 auto;")
           //.ibox-title
           //  h5 wew
@@ -14,104 +14,42 @@ template(name="index")
             br
             br
             h1 
-              b A Tool to Discover Your Brandʼs* Personality
-            p *Not a “brand”? Websites and blogs work, too. 
+              b Is your website honest, charming, or unique?
             br
             br
+            p "Excellent tool to get an external algorithm driven perspective on what core values and brand traits you are actually communicating."
+            p 
+              span - Robin
+              span(style="text-decoration:underline;") tool.robingood.com
             br
-            br
-            //h3 Monitor. Optimze. Partner.
-            h3 Instantly Profile Your Brand's Personality
             br
 
             +autoForm collection="InstantProfiles" id="insertInstantProfileForm" type="normal"
-              .input-group
-                //input#instant-profiler-url.form-control(type="text", style="height: 60px;", placeholder="Website URL")
-                +afFieldInput name="domain" style="height: 60px;" placeholder="Website URL"
-                span.input-group-btn
-                  button.btn.btn-primary(type="submit", style="height: 60px; width: 100px;") Profile
-              .help-block(style="color: red;") {{afFieldMessage name='domain'}}
+              div(style="padding: 20px 20px 10px 20px; background-color: rgb(77, 156, 199);")
+                h2(style="color: white; font-weight: bold;") A FREE TOOL TO DISCOVER YOUR BRAND PERSONALLY
+                br
+                +afFieldInput name="domain" style="height: 60px;" placeholder="Your Website URL"
+                br
+                button.btn.btn-primary(type="submit", style="height: 60px; width: 100%; background-color: black;") INSTANT ANALYSIS
+                .help-block(style="color: red;") {{afFieldMessage name='domain'}}
+      .col-md-8
+        .row
+          .col-md-6
+            +Template.dynamic template="exampleProfile" data=slack
+          .col-md-6
+            +Template.dynamic template="exampleProfile" data=blueBottle
+          .col-md-6
+            +Template.dynamic template="exampleProfile" data=honest
+          .col-md-6
+            +Template.dynamic template="exampleProfile" data=redBull
 
-
-
-  br
-  br
-  .wrap.animated.fadeInRight
-    .row
-      .col-md-8.col-md-offset-2
-            .row
-              .col-lg-6
-                p(style="line-height: 26px;") Using a process of natural language processing, we analyze the text on your website through the lens of our proprietary Brand Value Dictionary to give a distinct brand personality profile of your ecommerce store, website, or any other online text-based content.
-              .col-lg-6
-                p(style="line-height: 26px;") Know yourself before you sell yourself. Branding first, marketing second. Understanding your brandʼs personality helps you connect with your audience in new, exciting, more humanistic ways. 
-
-    br
-    br
-    br
-    br
-    br
-    .row
-      .col-md-8.col-md-offset-2
-        blockquoate
-          h3  
-            b "A brand for a company is like a reputation for a person. You earn reputation by trying to do hard things well."
-            span - Jeff Bezos
-  br
-  br
-  br
-
-  .wrap.animated.fadeInRight
-    .row
-      .col-md-4
-        +Template.dynamic template="exampleProfile" data=slack
-      .col-md-4
-        +Template.dynamic template="exampleProfile" data=blueBottle
-      .col-md-4
-        +Template.dynamic template="exampleProfile" data=honest
-    .row
-      .col-md-4.col-md-offset-2
-        +Template.dynamic template="exampleProfile" data=hillaryClinton
-      .col-md-4
-        +Template.dynamic template="exampleProfile" data=redBull
-
-
-    br
-    br
-    br
-    br
-    .row
-      .col-md-12
-        .ibox.float-e-margins(style="max-width: 720px; margin: 0 auto;")
-          //.ibox-title
-          //  h5 wew
-          .ibox-content(style="text-align: center;")
-            br
-            h1 
-              b It's Time to Profile Your Brand
-            br
-            br
-            h3 Instantly Profile Your Brand's Personality, it's free.
-            br
-            +autoForm collection="InstantProfiles" id="insertInstantProfileForm" type="normal"
-              .input-group
-                //input#instant-profiler-url.form-control(type="text", style="height: 60px;", placeholder="Website URL")
-                +afFieldInput name="domain" style="height: 60px;" placeholder="Website URL"
-                span.input-group-btn
-                  button.btn.btn-primary(type="submit", style="height: 60px; width: 100px;") Profile
-              .help-block(style="color: red;") {{afFieldMessage name='domain'}}
-
-    br
-    br
-    br
-    br
-    br
 
 template(name="exampleProfile")
   .ibox
     .ibox-content.product-box
       .example-profile-popup
         img(src="{{valuesChartImg}}")
-      .product-imitation(style="padding: 30px 0;")
+      .product-imitation(style="padding: 30px 0; background-color: white;")
         div(style="height: 160px; line-height: 160px; width: 100%; text-align: center;")
           img(src="{{img}}" width="160")
       .product-desc
