@@ -228,7 +228,7 @@ Meteor.startup(function() {
     let instantProfile = InstantProfiles.findOne(id);
 
     Charts.makeCharacterChart('character-chart', instantProfile.character, 'lite');
-    Charts.makeValuesChart('values-chart', instantProfile.values, 'overall');
+    Charts.makeValuesChart('values-chart', instantProfile.values, 'overall', 'lite');
     $('#character-description').steps({
 
       headerTag: 'h3',
