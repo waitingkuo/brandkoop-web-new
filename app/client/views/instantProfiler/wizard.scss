@@ -1,12 +1,36 @@
 #instantProfilerResult {
-  /* hide tablist */
-  .wizard ul.tablist li {
-    width: 150px;
-    line-height: 30px;
-    height: 20px;
+  .website-character {
+    /* hide tablist */
+    .wizard ul.tablist li {
+      width: 150px;
+      line-height: 30px;
+      height: 20px;
+    }
+    .wizard .steps {
+      display: none;
+    }
   }
-  .wizard .steps {
-    display: none;
+
+  .website-values {
+    .wizard .steps ul {
+      li {
+        width: 120px;
+        a {
+          width: 100px;
+          background-color: #c2c2c2;
+          text-decoration: none;
+          color: white;
+        }
+      }
+      li.current {
+        a {
+          background-color: #1ab394;
+        }
+      }
+    }
+    .wizard .actions {
+      display: none;
+    }
   }
 
   /* change the color of the action buttons */
