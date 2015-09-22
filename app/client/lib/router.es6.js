@@ -64,6 +64,7 @@ FlowRouter.route('/instantProfiler/result/:instantProfileId', {
 
   subscriptions(params) {
     this.register('instantProfile', Meteor.subscribe('instantProfile', params.instantProfileId));
+    this.register('stories', Meteor.subscribe('stories'));
   },
 
   action(params) {

@@ -92,10 +92,6 @@ Meteor.startup(function() {
 
   Template.instantProfilerResultProfiled.onRendered(function() {
     let accessToken = 'db9e55b523ef99f79aa3ec62daefecc4ec448c8b';
-    //let accessToken = 'f357ad2dd1f728b8722d4fe74eba54cd435f7af8';
-    //let longUrl = 'http%3A%2F%2Fbeta.brandkoop.com%2FinstantProfiler%2Fresult%2F' + params.instantProfileId;
-    //let longUrl = window.location.href
-    //window.location.href.replace('localhost:3000','dev.brandkoop.com')
     let longUrl = Meteor.absoluteUrl(FlowRouter.current().path.slice(1));
     longUrl = longUrl.replace('localhost:3000','dev.brandkoop.com') // cannot use localhost for bitly
     longUrl = encodeURIComponent(longUrl);
@@ -232,7 +228,7 @@ Meteor.startup(function() {
     let instantProfile = InstantProfiles.findOne(id);
 
     Charts.makeCharacterChart('character-chart', instantProfile.character, 'lite');
-    Charts.makeValuesChart('values-chart', instantProfile.values, 'overall', 'lite');
+    Charts.makeValuesChart('values-chart', instantProfile.values, 'overall');
     $('#character-description').steps({
 
       headerTag: 'h3',
