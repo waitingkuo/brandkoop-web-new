@@ -138,6 +138,45 @@ Meteor.startup(function() {
 
   Template.instantProfilerResultProfiled.helpers({
 
+    benchmarks: [
+      "Charming.png",
+      "Cheerful.png",
+      "Confident.png",
+      "Corporate.png",
+      "Daring.png",
+      "Down-to-Earth.png",
+      "Exciting.png",
+      "FamilyOriented.png",
+      "FamilyOriented2.png",
+      "Feminine.png",
+      "Friendly.png",
+      "Glamorous.png",
+      "GoodLooking.png",
+      "HardWorking.png",
+      "Honest.png",
+      "Imaginative.png",
+      "Independent.png",
+      "Intelligent.png",
+      "Masculine.png",
+      "Original.png",
+      "Outdoorsy.png",
+      "Real.png",
+      "Reliable.png",
+      "Rugged.png",
+      "Secure.png",
+      "Sentimental.png",
+      "Spirited.png",
+      "Successful.png",
+      "Technical.png",
+      "Tough.png",
+      "Trendy.png",
+      "Unique.png",
+      "Up-to-Date.png",
+      "UpperClass.png",
+      "Wholesome.png",
+      "Young.png",
+    ],
+
     profile() {
       let id = FlowRouter.getParam('instantProfileId');
       return InstantProfiles.findOne(id);
