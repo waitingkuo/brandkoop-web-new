@@ -110,6 +110,21 @@ template(name="instantProfilerResultProfiled")
   br
   br
   br
+  br
+  .row
+    .col-md-12(style="text-align: center;")
+      br
+      br
+      //p {{tweetText}}
+      h2 
+        b Tweet Your Profile
+      #instantProfilerResultTweet
+        //+instantProfilerResultTweet text=tweetText
+      //#tweet
+      //+shareit
+      br
+      br
+      br
 
   .row.website-character
     .col-md-12
@@ -152,21 +167,6 @@ template(name="instantProfilerResultProfiled")
                 //    span Be true to your main orientation, that's the larger purpose of your brand.
 
 
-  br
-  .row
-    .col-md-12(style="text-align: center;")
-      br
-      br
-      //p {{tweetText}}
-      h2 
-        b Tweet Your Profile
-      #instantProfilerResultTweet
-        //+instantProfilerResultTweet text=tweetText
-      //#tweet
-      //+shareit
-      br
-      br
-      br
 
 template(name="instantProfilerResultProfiling")
       
