@@ -98,6 +98,14 @@ Meteor.startup(function() {
 
   Template.adminUserList.events({
 
+    'click .history-btn': function(event) {
+      let userId = this._id;
+      let website = Websites.findOne({userId: userId});
+      Session.set('adminUserList:websiteId', website._id);
+      $('#history').modal();
+      
+    },
+
     'click .profile-btn': function(event) {
       let userId = this._id;
       let website = Websites.findOne({userId: userId});

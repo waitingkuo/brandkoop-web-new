@@ -54,6 +54,24 @@ Meteor.startup(function() {
 
   });
 
+  Meteor.publish('historicalWebsiteCharacter', function(websiteId) {
+
+    let characters = HistoricalWebsiteCharacters.find({
+      websiteId: websiteId,
+    });
+
+    return characters;
+
+  });
+
+  Meteor.publish('historicalWebsiteCharacters', function() {
+
+    let characters = HistoricalWebsiteCharacters.find({});
+
+    return characters;
+
+  });
+
   Meteor.publish('websiteValue', function(websiteId) {
 
     let websiteValue = WebsiteValues.find({

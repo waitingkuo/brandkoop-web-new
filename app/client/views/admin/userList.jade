@@ -1,6 +1,8 @@
 template(name="adminUserList")
 
   +pageHeading title='User List' category='Admin Dashboard'
+  .row
+    +history
 
   .wrapper.wrapper-content.animated.fadeInRight
     .row
@@ -68,6 +70,7 @@ template(name="adminUserList")
                           span Twitter Handle
                           input.input-twitter(type="text")
                           button.btn.btn-danger.add-twitter Add-Twitter
+                        button.btn.btn-primary.history-btn History
                       td
                         each similarWebsites
                           p {{this}}

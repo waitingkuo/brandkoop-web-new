@@ -1,0 +1,34 @@
+template(name="history")
+  .modal.inmodal#history(tabindex="-1", role="dialog", aria-hidden="true")
+    .modal-dialog
+      .modal-content.animated.bounceInRight(style="width: 140%;")
+        .modal-header 
+          .button.close(data-dismiss="modal")
+            span(aria-hidden="true") &times;
+            span.sr-only Close
+          //i.fa.fa-laptop.modal-icon
+          h4.modal-title History
+          small.font-bold 
+        .modal-body
+          table.table
+            thead
+              tr
+                th Sincerity
+                th Excitement
+                th Competence
+                th Sophistication
+                th Ruggedness
+                th Time
+            tbody
+              each historicalCharacters
+                tr
+                  td {{sincerity}}
+                  td {{excitement}}
+                  td {{competence}}
+                  td {{sophistication}}
+                  td {{ruggedness}}
+                  td {{time}}
+
+        .modal-footer
+          .button.btn.btn-white(type="button", data-dismiss="modal") Close
+
